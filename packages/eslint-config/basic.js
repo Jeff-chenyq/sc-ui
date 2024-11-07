@@ -55,8 +55,7 @@ export default [
       'node/no-exports-assign': 'error',
       'node/no-new-require': 'error',
       'node/no-path-concat': 'error',
-      'node/process-exit-as-throw': 'error',
-      'no-console': 'error'
+      'node/process-exit-as-throw': 'error'
     }
   },
 
