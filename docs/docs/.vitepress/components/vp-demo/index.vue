@@ -32,10 +32,10 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { CopyDocument, View, CaretTop } from '@element-plus/icons-vue'
 import { useClipboard, useToggle } from '@vueuse/core'
 import { ElDivider, ElTooltip, ElIcon, ElCollapseTransition, ElMessage } from 'element-plus'
-import { CopyDocument, View, CaretTop } from '@element-plus/icons-vue'
+import { computed } from 'vue'
 
 import Example from './vp-example.vue'
 import SourceCode from './vp-source-code.vue'

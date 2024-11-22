@@ -1,7 +1,7 @@
 import chalk from 'chalk'
+import consola from 'consola'
 import escapeHtml from 'escape-html'
 import prism from 'prismjs'
-import consola from 'consola'
 import loadLanguages from 'prismjs/components/index'
 
 loadLanguages(['markup', 'css', 'javascript'])

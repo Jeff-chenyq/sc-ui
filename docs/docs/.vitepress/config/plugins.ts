@@ -1,8 +1,8 @@
-import path from 'path'
 import fs from 'fs'
+import path from 'path'
 import MarkdownIt from 'markdown-it'
-import mdContainer from 'markdown-it-container'
 import Token from 'markdown-it/lib/token.mjs'
+import mdContainer from 'markdown-it-container'
 import { highlight } from '../utils/highlight'
 import { docRoot } from './global'
 const localMd = MarkdownIt()
