@@ -6,10 +6,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prepare": "husky",
     "preinstall": "npx only-allow pnpm",
     "commit": "cz",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docs:dev": "pnpm --filter=docs docs:dev"
   },
   "keywords": [],
   "author": "",
