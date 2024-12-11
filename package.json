@@ -8,27 +8,47 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "commit": "cz",
-    "docs:dev": "pnpm --filter=docs docs:dev"
+    "docs:dev": "pnpm --filter=docs docs:dev",
+    "gen": "tsx scripts/generate/component.ts",
+    "dev": "pnpm -C play dev"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "@sc-ui/components": "workspace:*",
+    "@sc-ui/eslint-config": "workspace:*",
+    "@sc-ui/hooks": "workspace:*",
+    "@sc-ui/stylelint-config": "workspace:*",
+    "lodash-unified": "^1.0.3"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/cz-commitlint": "^19.5.0",
     "@eslint/js": "^9.12.0",
-    "@sc-ui/eslint-config": "workspace:*",
-    "@sc-ui/stylelint-config": "workspace:^",
+    "@types/fs-extra": "^11.0.4",
+    "@types/prompts": "^2.4.9",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue-jsx": "^4.1.1",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",
+    "fs-extra": "^11.2.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
+    "lodash-es": "^4.17.21",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
+    "prompts": "^2.4.2",
     "stylelint": "^16.10.0",
-    "typescript": "^5.6.3"
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "unplugin-vue-define-options": "^1.5.2",
+    "vue": "^3.5.13"
   }
 }

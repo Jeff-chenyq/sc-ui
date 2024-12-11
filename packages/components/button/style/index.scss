@@ -1,0 +1,7 @@
+body {
+  --vlib-button-background: black;
+}
+
+.vlib-button {
+  background: var(--vlib-button-background);
+}

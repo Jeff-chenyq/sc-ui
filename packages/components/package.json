@@ -1,12 +1,12 @@
 {
   "name": "@sc-ui/components",
   "version": "1.0.0",
-  "description": "",
+  "description": "组件",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "module": "index.ts",
+  "peerDependencies": {
+    "vue": "^3.2.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "types": "index.d.ts",
+  "sideEffects": false
 }
