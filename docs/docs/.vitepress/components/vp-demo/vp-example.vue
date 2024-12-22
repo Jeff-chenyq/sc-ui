@@ -1,7 +1,11 @@
 <template>
   <ClientOnly>
     <div class="example-component">
-      <component :is="dynamicComponent" v-if="dynamicComponent" v-bind="$attrs" />
+      <component
+        :is="dynamicComponent"
+        v-if="dynamicComponent"
+        v-bind="$attrs"
+      />
       <div v-else class="example-component--spin">
         <div></div>
         <div></div>

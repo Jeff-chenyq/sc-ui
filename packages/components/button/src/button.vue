@@ -1,5 +1,5 @@
 <template>
-  <div :class="ns.b()">Button</div>
+  <div :class="ns.b()">Button 123</div>
 </template>
 
 <script lang="ts" setup>

@@ -5,6 +5,7 @@ import type Button from './button.vue'
 export const buttonProps = buildProps({
   type: {
     type: String,
+    values: ['primary', 'success', 'warning', 'danger', 'info'],
     default: ''
   }
 } as const)

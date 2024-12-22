@@ -20,7 +20,11 @@
         <SourceCode v-show="sourceVisible" :source="source" />
       </ElCollapseTransition>
       <Transition name="el-fade-in-linear">
-        <div v-show="sourceVisible" class="example-float-control" @click="toggleSourceVisible(false)">
+        <div
+          v-show="sourceVisible"
+          class="example-float-control"
+          @click="toggleSourceVisible(false)"
+        >
           <ElIcon :size="16">
             <CaretTop />
           </ElIcon>
@@ -34,7 +38,13 @@
 <script lang="ts" setup>
 import { CopyDocument, View, CaretTop } from '@element-plus/icons-vue'
 import { useClipboard, useToggle } from '@vueuse/core'
-import { ElDivider, ElTooltip, ElIcon, ElCollapseTransition, ElMessage } from 'element-plus'
+import {
+  ElDivider,
+  ElTooltip,
+  ElIcon,
+  ElCollapseTransition,
+  ElMessage
+} from 'element-plus'
 import { computed } from 'vue'
 
 import Example from './vp-example.vue'
@@ -54,7 +64,9 @@ const { copy, isSupported } = useClipboard({
 
 const [sourceVisible, toggleSourceVisible] = useToggle(false)
 
-const decodedDescription = computed(() => decodeURIComponent(props.description!))
+const decodedDescription = computed(() =>
+  decodeURIComponent(props.description!)
+)
 
 const copyCode = async () => {
   if (!isSupported) {

@@ -7,7 +7,7 @@
     "types": ["vite/client"],
     "skipLibCheck": true
   },
-  "include": ["packages", "typings/env.d.ts", "docs/env.d.ts"],
+  "include": ["packages", "typings/env.d.ts"],
   "exclude": [
     "node_modules",
     "**/dist",

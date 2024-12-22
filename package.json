@@ -1,5 +1,4 @@
 {
-  "name": "sc-ui",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -10,7 +9,8 @@
     "commit": "cz",
     "docs:dev": "pnpm --filter=docs docs:dev",
     "gen": "tsx scripts/generate/component.ts",
-    "dev": "pnpm -C play dev"
+    "dev": "pnpm -C play dev",
+    "build": "gulp --require @esbuild-kit/cjs-loader -f scripts/build/index.ts"
   },
   "peerDependencies": {
     "vue": "^3.2.0"
@@ -23,32 +23,45 @@
     "@sc-ui/eslint-config": "workspace:*",
     "@sc-ui/hooks": "workspace:*",
     "@sc-ui/stylelint-config": "workspace:*",
+    "@sc-ui/utils": "workspace:*",
     "lodash-unified": "^1.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/cz-commitlint": "^19.5.0",
+    "@esbuild-kit/cjs-loader": "^2.3.3",
     "@eslint/js": "^9.12.0",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
     "@types/fs-extra": "^11.0.4",
+    "@types/gulp": "^4.0.17",
     "@types/prompts": "^2.4.9",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
+    "esbuild": "^0.24.0",
     "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",
+    "execa": "^6.1.0",
+    "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
+    "gulp": "^4.0.2",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "lodash-es": "^4.17.21",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "prompts": "^2.4.2",
+    "rollup": "^4.28.1",
+    "rollup-plugin-esbuild": "^6.1.1",
     "stylelint": "^16.10.0",
     "tsx": "^4.19.2",
-    "typescript": "^5.6.3",
+    "typescript": "5.6.2",
     "unplugin-vue-define-options": "^1.5.2",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "vue-tsc": "2.0.29"
   }
 }

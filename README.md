@@ -13,6 +13,10 @@
 4.新增stylelint子包，规范style
 5.vitepress vue-demo 插件原理熟悉，可以直接在markdown 中使用vue组件，并提供复制等功能
 6.新增快速生成组件模版，包含检测是否有重复组件，生成sfc，tsx组件。（学习element-plus shell脚本的创建组件的方式）
+
+vue-tsc 版本有问题，暂时锁死 2.0.29, typescript 5.6.2 https://liubing.me/article/vue/search-string-not-found-supported-ts-extensions.html#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88
+
+gulp 5.0.0使用 @esbuild-kit/cjs-loader，命令行会找不到模块，显式用./node_modules,或者版本回退至4.x
 # TODO
 pnpm 使用 18.16.0，使用20.9.0的时候，安装子包报错，后续查看原因
 
