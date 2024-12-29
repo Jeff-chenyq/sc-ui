@@ -6,7 +6,10 @@ export default {
       files: ['**/*.scss'],
       customSyntax: 'postcss-scss',
       rules: {
-        'import-notation': 'string'
+        'import-notation': 'string',
+        'function-no-unknown': null,
+        'at-rule-empty-line-before': null,
+        'function-name-case': null
       }
     },
     {
@@ -41,6 +44,12 @@ export default {
       true,
       {
         ignorePseudoClasses: ['deep', 'global', 'slotted']
+      }
+    ],
+    'annotation-no-unknown': [
+      true,
+      {
+        ignoreAnnotations: ['default']
       }
     ]
   }

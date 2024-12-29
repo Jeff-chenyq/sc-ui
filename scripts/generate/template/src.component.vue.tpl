@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { useNamespace } from '@sc-ui/hooks'
-import { <%= camelCaseName %>Props } from './<%= camelCaseName %>'
+import { <%= camelCaseName %>Props } from './<%= name %>'
 
 const ns = useNamespace('<%= name %>')
 

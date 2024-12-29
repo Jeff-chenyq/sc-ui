@@ -12,37 +12,40 @@ import { epRoot, pkgRoot } from '../utils/path'
 import { generateExternal, excludeFiles } from '../utils/rollup'
 
 export const buildModules = async () => {
+  // 不包含样式
   const input = excludeFiles(
-    await glob('**/*.{js,ts,vue}', {
+    await glob(['**/*.{js,ts,vue}', '!**/style/(index|css).{js,ts,vue}'], {
       cwd: pkgRoot,
       absolute: true,
       onlyFiles: true
     })
   )
 
+  const plugins = [
+    vueDefineOptions(),
+    vue(),
+    vueJsx(),
+    // 用于解析Node.js模块。它可以让Rollup打包时使用Node.js模块（包括外部依赖），而不仅仅是ES模块
+    nodeResolve(),
+    commonjs(),
+    esbuild({
+      target,
+      sourceMap: true,
+      loaders: {
+        '.vue': 'ts'
+      }
+      // minify: false,
+      // loaders: {
+      //   '.vue': 'ts'
+      // },
+      // tsconfig: path.resolve(__dirname, '../../tsconfig.json')
+    }),
+    json()
+  ]
+
   const bundle = await rollup({
     input,
-    plugins: [
-      vueDefineOptions(),
-      vue(),
-      vueJsx(),
-      // 用于解析Node.js模块。它可以让Rollup打包时使用Node.js模块（包括外部依赖），而不仅仅是ES模块
-      nodeResolve(),
-      commonjs(),
-      esbuild({
-        target,
-        sourceMap: true,
-        loaders: {
-          '.vue': 'ts'
-        }
-        // minify: false,
-        // loaders: {
-        //   '.vue': 'ts'
-        // },
-        // tsconfig: path.resolve(__dirname, '../../tsconfig.json')
-      }),
-      json()
-    ],
+    plugins,
     treeshake: false,
     external: generateExternal({ full: true })
   })
@@ -68,7 +71,7 @@ export const buildModules = async () => {
   //     dir: outputEsm, // 输出目录
   //     // exports: undefined, // 导出模式
   //     preserveModules: true, // 与原始模块创建相同的文件
-  //     preserveModulesRoot: 'src',
+  //     preserveModulesRoot: 'src', // 相对于 src 文件夹来保持模块结构，而不是整个项目的根目录。
   //     sourcemap: true, // 生成 sourcemap
   //     entryFileNames: '[name].mjs' // 生成文件名
   //   }),
@@ -83,3 +86,7 @@ export const buildModules = async () => {
   //   })
   // ])
 }
+
+// const buildModulesStyles = () => {
+//   const input = glob('')
+// }

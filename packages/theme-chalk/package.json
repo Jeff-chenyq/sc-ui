@@ -1,0 +1,21 @@
+{
+  "name": "@sc-ui/theme-chalk",
+  "version": "1.0.0",
+  "description": "样式",
+  "main": "index.css",
+  "unpkg": "index.css",
+  "jsdelivr": "index.css",
+  "scripts": {
+    "clean": "",
+    "build": "gulp --require @esbuilt-kit/cjs-loader"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/gulp-autoprefixer": "^0.0.37",
+    "@types/gulp-clean-css": "^4.3.4",
+    "@types/gulp-sass": "^5.0.4",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^6.0.0"
+  }
+}

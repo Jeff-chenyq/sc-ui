@@ -6,7 +6,9 @@ import prompts from 'prompts'
 
 // 组件名称格式
 function checkComponentName(name: string) {
-  return !/^[a-z][a-z|-]*[a-z]$/.test(name)
+  // return !/^[a-z][a-z|-]*[a-z]$/.test(name)
+  const strictKebabCasePattern = /^(?!-)(?!.*-$)[a-z]+(-[a-z]+)*$/
+  return !strictKebabCasePattern.test(name)
 }
 
 // 组件是否存在
@@ -25,10 +27,6 @@ const getCreatedFiles = (name: string, type?: string) => {
       file: 'index.ts', // 生成的文件
       template: 'index.ts.tpl' // 由哪个模板生成文件
     },
-    // {
-    //   file: 'README.md',
-    //   template: 'README.md.tpl'
-    // },
     {
       file: `src/${name}.ts`,
       template: 'src.props.ts.tpl'
@@ -43,16 +41,21 @@ const getCreatedFiles = (name: string, type?: string) => {
           template: 'src.component.vue.tpl'
         },
     {
-      file: 'style/index.scss',
-      template: 'style.index.scss.tpl'
-    },
-    // {
-    //   file: '__demos__/basic.vue',
-    //   template: '__demos__.basic.vue.tpl'
-    // },
-    {
       file: `__tests__/${name}.test.tsx`,
       template: '__tests__.component.test.tsx.tpl'
+    },
+    {
+      file: `style/index.ts`,
+      template: 'style.index.ts.tpl'
+    },
+    {
+      file: `style/css.ts`,
+      template: 'style.css.ts.tpl'
+    },
+    {
+      file: `${name}.scss`,
+      template: 'style.component.scss.tpl',
+      isThemeChalk: true
     }
   ]
 }
@@ -78,9 +81,12 @@ const addComponent = async (name: string, type?: string) => {
     })
 
     // 输入模板
+    const filePath = item.isThemeChalk
+      ? 'packages/theme-chalk/src'
+      : 'packages/components'
     const outputPath = path.resolve(
       process.cwd(),
-      `packages/components/${name}/${item.file}`
+      `${filePath}/${name}/${item.file}`
     )
     await fs.outputFile(outputPath, data)
     console.log(`已创建：${outputPath}`)

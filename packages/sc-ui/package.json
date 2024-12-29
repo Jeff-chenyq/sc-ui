@@ -48,9 +48,6 @@
   },
   "unpkg": "dist/index.full.js",
   "jsdelivr": "dist/index.full.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "peerDependencies": {
     "vue": "^3.2.0"
   },

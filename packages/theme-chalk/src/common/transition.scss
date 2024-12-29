@@ -1,0 +1,30 @@
+@use '../mixins/config' as *;
+@use '../mixins/mixins' as *;
+
+.fade-in-linear-enter-active,
+.fade-in-linear-leave-active {
+  transition: getCssVar('transition-fade', 'linear');
+}
+
+.fade-in-linear-enter-from,
+.fade-in-linear-leave-to {
+  opacity: 0;
+}
+
+.#{$namespace}-fade-in-linear-enter-active,
+.#{$namespace}-fade-in-linear-leave-active {
+  transition: getCssVar('transition-fade', 'linear');
+}
+.#{$namespace}-fade-in-linear-enter-from,
+.#{$namespace}-fade-in-linear-leave-to {
+  opacity: 0;
+}
+
+.#{$namespace}-fade-in-enter-active,
+.#{$namespace}-fade-in-leave-active {
+  transition: all getCssVar('transition-duration') cubic-bezier(0.55, 0, 0.1, 1);
+}
+.#{$namespace}-fade-in-enter-from,
+.#{$namespace}-fade-in-leave-active {
+  opacity: 0;
+}
