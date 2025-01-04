@@ -1,17 +1,44 @@
+import path from 'path'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import glob from 'fast-glob'
+import { series } from 'gulp'
 import { rollup } from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
 import vueDefineOptions from 'unplugin-vue-define-options/rollup'
+import { ScUiAlias } from '../../plugins/sc-ui-alias'
 import { target, buildConfigEntries } from '../build-info'
 import { epRoot, pkgRoot } from '../utils/path'
 import { generateExternal, excludeFiles } from '../utils/rollup'
 
-export const buildModules = async () => {
+const plugins = [
+  // 重要，否则样式文件打包会有问题
+  ScUiAlias(),
+  vueDefineOptions(),
+  vue(),
+  vueJsx(),
+  // 用于解析Node.js模块。它可以让Rollup打包时使用Node.js模块（包括外部依赖），而不仅仅是ES模块
+  nodeResolve(),
+  commonjs(),
+  esbuild({
+    target,
+    sourceMap: true,
+    loaders: {
+      '.vue': 'ts'
+    }
+    // minify: false,
+    // loaders: {
+    //   '.vue': 'ts'
+    // },
+    // tsconfig: path.resolve(__dirname, '../../tsconfig.json')
+  }),
+  json()
+]
+
+export const buildModulesComponents = async () => {
   // 不包含样式
   const input = excludeFiles(
     await glob(['**/*.{js,ts,vue}', '!**/style/(index|css).{js,ts,vue}'], {
@@ -21,32 +48,11 @@ export const buildModules = async () => {
     })
   )
 
-  const plugins = [
-    vueDefineOptions(),
-    vue(),
-    vueJsx(),
-    // 用于解析Node.js模块。它可以让Rollup打包时使用Node.js模块（包括外部依赖），而不仅仅是ES模块
-    nodeResolve(),
-    commonjs(),
-    esbuild({
-      target,
-      sourceMap: true,
-      loaders: {
-        '.vue': 'ts'
-      }
-      // minify: false,
-      // loaders: {
-      //   '.vue': 'ts'
-      // },
-      // tsconfig: path.resolve(__dirname, '../../tsconfig.json')
-    }),
-    json()
-  ]
-
   const bundle = await rollup({
     input,
     plugins,
-    treeshake: false,
+    // treeshake: false,
+    treeshake: { moduleSideEffects: false },
     external: generateExternal({ full: true })
   })
 
@@ -87,6 +93,36 @@ export const buildModules = async () => {
   // ])
 }
 
-// const buildModulesStyles = () => {
-//   const input = glob('')
-// }
+export const buildModulesStyles = async () => {
+  const input = excludeFiles(
+    await glob('**/style/(index|css).{js,ts,vue}', {
+      cwd: pkgRoot,
+      absolute: true,
+      onlyFiles: true
+    })
+  )
+
+  const bundle = await rollup({
+    input,
+    plugins,
+    treeshake: false
+  })
+
+  await Promise.all(
+    buildConfigEntries.map(([module, config]) => {
+      return bundle.write({
+        format: config.format,
+        dir: path.resolve(config.output.path, 'components'),
+        // dir: path.resolve(config.output.path),
+        exports: module === 'cjs' ? 'named' : undefined,
+        preserveModules: true,
+        // TODO 理解这块打包
+        preserveModulesRoot: epRoot,
+        sourcemap: true,
+        entryFileNames: `[name].${config.ext}`
+      })
+    })
+  )
+}
+
+export const buildModules = series(buildModulesComponents, buildModulesStyles)

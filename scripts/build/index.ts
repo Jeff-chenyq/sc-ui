@@ -4,7 +4,13 @@ import { copy } from 'fs-extra'
 import { parallel, series } from 'gulp'
 import type { TaskFunction } from 'gulp'
 import { buildConfig, Module } from './build-info'
-import { buildFull, buildModules, clean, generateTypes } from './task'
+import {
+  buildFull,
+  buildModules,
+  clean,
+  generateTypes,
+  buildStyle
+} from './task'
 import { buildOutput, epPackage, epOutput, projRoot } from './utils/path'
 
 /**
@@ -33,6 +39,10 @@ export const copyFiles = () =>
   ])
 
 export default series(
-  series(clean, parallel(buildModules, buildFull, generateTypes)),
+  series(
+    clean,
+    parallel(buildModules, buildFull, generateTypes),
+    series(buildStyle)
+  ),
   parallel(copyTypesDefinitions, copyFiles)
 )

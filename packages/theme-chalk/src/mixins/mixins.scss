@@ -12,7 +12,7 @@ $E: null;
 // BEM
 @mixin b($block) {
   $B: $namespace + $common-separator + $block !global;
-  .#{B} {
+  .#{$B} {
     @content;
   }
 }

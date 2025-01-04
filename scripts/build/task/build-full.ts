@@ -1,5 +1,6 @@
 import path from 'path'
 import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -32,7 +33,8 @@ const build = async (minify: boolean) => {
             target,
             sourceMap: true
           })
-        : undefined
+        : undefined,
+      json()
     ],
     treeshake: true,
     external: generateExternal({ full: false })

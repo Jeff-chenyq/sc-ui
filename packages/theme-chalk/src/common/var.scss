@@ -1,7 +1,9 @@
+@use 'sass:math';
 @use 'sass:map';
+@use 'sass:color';
 @use '../mixins/function.scss' as *;
 
-$types: primary, success, warning, danger, info;
+$types: primary, success, warning, danger, error, info;
 
 // color
 $colors: () !default;
@@ -40,6 +42,37 @@ $color-warning: map.get($colors, 'warning', 'base') !default;
 $color-danger: map.get($colors, 'danger', 'base') !default;
 $color-error: map.get($colors, 'error', 'base') !default;
 $color-info: map.get($colors, 'info', 'base') !default;
+
+@mixin set-color-mix-level(
+  $type,
+  $number,
+  $mode: 'light',
+  $mix-color: $color-white
+) {
+  $colors: map.deep-merge(
+    (
+      $type: (
+        '#{$mode}-#{$number}': color.mix(
+            $mix-color,
+            map.get($colors, $type, 'base'),
+            math.percentage(math.div($number, 10))
+          )
+      )
+    ),
+    $colors
+  ) !global;
+}
+
+@each $type in $types {
+  @for $i from 1 through 9 {
+    @include set-color-mix-level($type, $i, 'light', $color-white);
+  }
+}
+
+// --el-color-primary-dark-2
+@each $type in $types {
+  @include set-color-mix-level($type, 2, 'dark', $color-black);
+}
 
 $text-color: () !default;
 $text-color: map.merge(
@@ -94,7 +127,7 @@ $bg-color: map.merge(
 // Border
 $border-width: 1px !default;
 $border-style: solid !default;
-$border-color-hover: getcssvar('text-color', 'disabled') !default;
+$border-color-hover: getCssVar('text-color', 'disabled') !default;
 
 $border-radius: () !default;
 $border-radius: map.merge(
@@ -195,4 +228,55 @@ $transition-function: map.merge(
     'fast-bezier': cubic-bezier(0.23, 1, 0.32, 1)
   ),
   $transition-function
+);
+
+// zIndex
+$z-index: () !default;
+$z-index: map.merge(
+  (
+    'normal': 1,
+    'top': 1000,
+    'popper': 2000
+  ),
+  $z-index
+);
+
+$common-component-size: () !default;
+$common-component-size: map.merge(
+  (
+    'large': 40px,
+    'default': 32px,
+    'small': 24px
+  ),
+  $common-component-size
+);
+// Disable default
+$disabled: () !default;
+$disabled: map.merge(
+  (
+    'bg-color': getCssVar('fill-color', 'light'),
+    'text-color': getCssVar('text-color', 'placeholder'),
+    'border-color': getCssVar('border-color', 'light')
+  ),
+  $disabled
+);
+// overlay
+$overlay-color: () !default;
+$overlay-color: map.merge(
+  (
+    '': rgb(0 0 0 / 80%),
+    'light': rgb(0 0 0 / 70%),
+    'lighter': rgb(0 0 0 / 50%)
+  ),
+  $overlay-color
+);
+
+// mask
+$mask-color: () !default;
+$mask-color: map.merge(
+  (
+    '': rgb(255 255 255 / 90%),
+    'extra-light': rgb(255 255 255 / 30%)
+  ),
+  $mask-color
 );

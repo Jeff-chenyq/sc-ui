@@ -19,10 +19,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@sc-ui/build": "workspace:^",
     "@sc-ui/components": "workspace:*",
     "@sc-ui/eslint-config": "workspace:*",
     "@sc-ui/hooks": "workspace:*",
     "@sc-ui/stylelint-config": "workspace:*",
+    "@sc-ui/theme-chalk": "workspace:*",
     "@sc-ui/utils": "workspace:*",
     "lodash-unified": "^1.0.3"
   },
@@ -61,6 +63,7 @@
     "stylelint": "^16.10.0",
     "tsx": "^4.19.2",
     "typescript": "5.6.2",
+    "unplugin-vue-components": "^0.28.0",
     "unplugin-vue-define-options": "^1.5.2",
     "vue": "^3.5.13",
     "vue-tsc": "2.0.29"

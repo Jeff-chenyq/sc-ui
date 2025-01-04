@@ -86,7 +86,9 @@ const addComponent = async (name: string, type?: string) => {
       : 'packages/components'
     const outputPath = path.resolve(
       process.cwd(),
-      `${filePath}/${name}/${item.file}`
+      item.isThemeChalk
+        ? `${filePath}/${name}/${item.file}`
+        : `${filePath}/${item.file}`
     )
     await fs.outputFile(outputPath, data)
     console.log(`已创建：${outputPath}`)
