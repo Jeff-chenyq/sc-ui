@@ -116,7 +116,7 @@ export const buildModulesStyles = async () => {
         // dir: path.resolve(config.output.path),
         exports: module === 'cjs' ? 'named' : undefined,
         preserveModules: true,
-        // TODO 理解这块打包
+        // NOTE 理解这块打包 其实 和 components保持同一级的就行
         preserveModulesRoot: epRoot,
         sourcemap: true,
         entryFileNames: `[name].${config.ext}`

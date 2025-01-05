@@ -1,5 +1,5 @@
-@use 'mixins/mixins.scss' as *;
+@use 'mixins/mixins' as *;
 
 @include b(plate-number) {
-  color: red;
+  //TODO
 }

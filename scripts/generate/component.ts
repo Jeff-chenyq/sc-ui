@@ -86,7 +86,7 @@ const addComponent = async (name: string, type?: string) => {
       : 'packages/components'
     const outputPath = path.resolve(
       process.cwd(),
-      item.isThemeChalk
+      !item.isThemeChalk
         ? `${filePath}/${name}/${item.file}`
         : `${filePath}/${item.file}`
     )
