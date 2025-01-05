@@ -1,2 +1,2 @@
-import '@sc-ui/theme-chalk/src/base.css'
-import '@sc-ui/theme-chalk/src/plate-number-show.css'
+import '@sc-ui/theme-chalk/base.css'
+import '@sc-ui/theme-chalk/sc-plate-number-show.css'

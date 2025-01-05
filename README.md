@@ -30,3 +30,19 @@ pnpm 使用 18.16.0，使用20.9.0的时候，安装子包报错，后续查看�
 2.实现组件 resolver
 
 3.组件库编辑器提示
+
+## Link local dependencies
+
+```shell
+# get dist
+pnpm build
+cd dist/element-plus
+# set cur element-plus to global `node_modules`
+pnpm link --global
+# for esm we also need link element-plus for dist
+pnpm link --global element-plus
+
+# go to your project, link to `element-plus`
+cd your-project
+pnpm link --global element-plus
+```

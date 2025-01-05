@@ -1,2 +1,2 @@
-import '@sc-ui/theme-chalk/src/base.css'
-import '@sc-ui/theme-chalk/src/<%= name %>.css'
+import '@sc-ui/theme-chalk/base.css'
+import '@sc-ui/theme-chalk/sc-<%= name %>.css'
