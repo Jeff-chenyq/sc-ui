@@ -52,7 +52,8 @@ export const excludeFiles = (files: string[]) => {
     'gulpfile',
     'dist',
     'eslint-config',
-    'stylelint-config'
+    'stylelint-config',
+    'resolver'
   ]
   return files.filter((path) => {
     const position = path.startsWith(projRoot) ? projRoot.length : 0
