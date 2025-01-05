@@ -9,7 +9,8 @@ import {
   buildModules,
   clean,
   generateTypes,
-  buildStyle
+  buildStyle,
+  buildResolver
 } from './task'
 import { buildOutput, epPackage, epOutput, projRoot } from './utils/path'
 
@@ -49,7 +50,7 @@ export const copyFullStyle = async () => {
 export default series(
   series(
     clean,
-    parallel(buildModules, buildFull, generateTypes),
+    parallel(buildModules, buildFull, buildResolver, generateTypes),
     series(buildStyle, copyFullStyle)
   ),
   parallel(copyTypesDefinitions, copyFiles)
