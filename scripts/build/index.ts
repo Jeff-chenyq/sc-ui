@@ -1,4 +1,4 @@
-import { copyFile } from 'fs/promises'
+import { copyFile, mkdir } from 'fs/promises'
 import path from 'path'
 import { copy } from 'fs-extra'
 import { parallel, series } from 'gulp'
@@ -38,11 +38,19 @@ export const copyFiles = () =>
     // )
   ])
 
+export const copyFullStyle = async () => {
+  await mkdir(path.resolve(epOutput, 'dist'), { recursive: true })
+  await copyFile(
+    path.resolve(epOutput, 'theme-chalk/index.css'),
+    path.resolve(epOutput, 'dist/index.css')
+  )
+}
+
 export default series(
   series(
     clean,
     parallel(buildModules, buildFull, generateTypes),
-    series(buildStyle)
+    series(buildStyle, copyFullStyle)
   ),
   parallel(copyTypesDefinitions, copyFiles)
 )
