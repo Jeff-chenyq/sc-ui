@@ -1,11 +1,10 @@
 import fs from 'fs'
 import path from 'path'
-// import { docRoot } from '@sc-ui/build'
+import { docRoot } from '@sc-ui/build'
 import MarkdownIt from 'markdown-it'
 import Token from 'markdown-it/lib/token.mjs'
 import mdContainer from 'markdown-it-container'
 import { highlight } from '../utils/highlight'
-import { docRoot } from './global'
 
 const localMd = MarkdownIt()
 

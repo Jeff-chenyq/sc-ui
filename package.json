@@ -10,7 +10,8 @@
     "docs:dev": "pnpm --filter=docs docs:dev",
     "gen": "tsx scripts/generate/component.ts",
     "dev": "pnpm -C play dev",
-    "build": "gulp --require @esbuild-kit/cjs-loader -f scripts/build/index.ts"
+    "build": "gulp --require @esbuild-kit/cjs-loader -f scripts/build/index.ts",
+    "postinstall": "pnpm -C scripts stub"
   },
   "peerDependencies": {
     "vue": "^3.2.0"

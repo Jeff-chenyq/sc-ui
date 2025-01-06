@@ -2,13 +2,23 @@
   "name": "@sc-ui/build",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
-  "module": "index.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "peerDependencies": {
     "vue": "^3.2.0"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
   "license": "MIT",
+  "scripts": {
+    "stub": "unbuild --stub"
+  },
   "devDependencies": {
-    "components-helper": "^2.2.0"
+    "components-helper": "^2.2.0",
+    "unbuild": "^3.2.0"
   }
 }
