@@ -1,10 +1,12 @@
 import fs from 'fs'
 import path from 'path'
+// import { docRoot } from '@sc-ui/build'
 import MarkdownIt from 'markdown-it'
 import Token from 'markdown-it/lib/token.mjs'
 import mdContainer from 'markdown-it-container'
 import { highlight } from '../utils/highlight'
 import { docRoot } from './global'
+
 const localMd = MarkdownIt()
 
 interface ContainerOpts {
@@ -37,7 +39,10 @@ export const mdPlugin = (md: MarkdownIt) => {
         const sourceFile = sourceFileToken.children?.[0].content ?? ''
         if (sourceFileToken.type === 'inline') {
           // 读取示列代码文件
-          source = fs.readFileSync(path.resolve(docRoot, 'examples', `${sourceFile}.vue`), 'utf-8')
+          source = fs.readFileSync(
+            path.resolve(docRoot, 'examples', `${sourceFile}.vue`),
+            'utf-8'
+          )
         }
         if (!source) throw new Error(`Incorrect source file: ${sourceFile}`)
         // opening tag

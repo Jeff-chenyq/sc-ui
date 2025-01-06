@@ -634,14 +634,18 @@ div[class*='language-'].line-numbers-mode {
 
 @media screen and (width >= 1440px) {
   .sidebar {
-    width: calc((100vw - var(--vp-screen-max-width)) / 2 + var(--vp-sidebar-width-small));
+    width: calc(
+      (100vw - var(--vp-screen-max-width)) / 2 + var(--vp-sidebar-width-small)
+    );
     padding: 48px 32px 96px calc((100vw - var(--vp-screen-max-width)) / 2);
   }
 }
 
 @media screen and (width >= 1680px) {
   .sidebar {
-    width: calc((100vw - var(--vp-screen-max-width)) / 2 + var(--vp-sidebar-width-small));
+    width: calc(
+      (100vw - var(--vp-screen-max-width)) / 2 + var(--vp-sidebar-width-small)
+    );
     padding: 48px 48px 96px calc((100vw - var(--vp-screen-max-width)) / 2);
   }
 }
@@ -831,7 +835,9 @@ div[class*='language-'].line-numbers-mode {
 
 @media screen and (width >= 960px) and (width >= 1440px) {
   .page-content.has-sidebar {
-    padding-left: calc((100% - var(--vp-screen-max-width)) / 2 + var(--vp-sidebar-width-small));
+    padding-left: calc(
+      (100% - var(--vp-screen-max-width)) / 2 + var(--vp-sidebar-width-small)
+    );
   }
 }
 

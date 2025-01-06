@@ -19,7 +19,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@sc-ui/build": "workspace:^",
+    "@sc-ui/build": "workspace:*",
     "@sc-ui/components": "workspace:*",
     "@sc-ui/eslint-config": "workspace:*",
     "@sc-ui/hooks": "workspace:*",

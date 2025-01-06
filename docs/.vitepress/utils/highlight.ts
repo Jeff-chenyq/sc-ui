@@ -36,7 +36,11 @@ export const highlight = (str: string, lang: string) => {
     try {
       loadLanguages([lang])
     } catch {
-      consola.warn(chalk.yellow(`[vitepress] Syntax highlight for language "${lang}" is not supported.`))
+      consola.warn(
+        chalk.yellow(
+          `[vitepress] Syntax highlight for language "${lang}" is not supported.`
+        )
+      )
     }
   }
   if (prism.languages[lang]) {

@@ -14,6 +14,6 @@
     "play/env.d.ts",
     "play/src/**/*",
     // docs
-    "docs/docs/.vitepress/**/*"
+    "docs/.vitepress/**/*"
   ]
 }

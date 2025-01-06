@@ -25,4 +25,4 @@ dist-ssr
 *.sw?
 *.zip
 
-docs/docs/.vitepress/cache
+docs/.vitepress/cache

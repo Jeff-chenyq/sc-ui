@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@sc-ui/build':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:scripts
       '@sc-ui/components':
         specifier: workspace:*
@@ -153,6 +153,12 @@ importers:
       '@element-plus/icons-vue':
         specifier: ^2.3.1
         version: 2.3.1(vue@3.5.13)
+      '@sc-ui/build':
+        specifier: workspace:^
+        version: link:../scripts
+      '@vitejs/plugin-vue':
+        specifier: ^5.2.1
+        version: 5.2.1(vite@6.0.7)(vue@3.5.13)
       '@vueuse/core':
         specifier: ^11.2.0
         version: 11.3.0(vue@3.5.13)
