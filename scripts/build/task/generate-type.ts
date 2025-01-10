@@ -32,6 +32,7 @@ export const generateTypes = async () => {
     absolute: true
   })
 
+  // 替换 @sc-ui => sc-ui @sc-ui/theme-chalk => sc-ui/theme-chalk
   const rewriteTasks = filePaths.map(async (filePath) => {
     const content = await readFile(filePath, 'utf-8')
 
