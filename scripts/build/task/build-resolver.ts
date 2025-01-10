@@ -12,7 +12,7 @@ export async function buildResolver() {
         sourceMap: true
       })
     ],
-    external: [/./],
+    external: ['unplugin-vue-components'],
     treeshake: false
   })
 
