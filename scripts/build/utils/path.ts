@@ -33,3 +33,8 @@ export const directivePackage = resolve(directiveRoot, 'package.json')
 export const epPackage = resolve(epRoot, 'package.json')
 export const utilPackage = resolve(utilRoot, 'package.json')
 export const docPackage = resolve(docRoot, 'package.json')
+
+export const getPackageManifest = (pkgPath: string) => {
+  // eslint-disable-next-line
+  return require(pkgPath)
+}

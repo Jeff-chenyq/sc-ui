@@ -10,7 +10,8 @@ import {
   clean,
   generateTypes,
   buildStyle,
-  buildResolver
+  buildResolver,
+  buildHelper
 } from './task'
 import { buildOutput, epPackage, epOutput, projRoot } from './utils/path'
 
@@ -32,11 +33,11 @@ export const copyFiles = () =>
     copyFile(
       path.resolve(projRoot, 'README.md'),
       path.resolve(epOutput, 'README.md')
+    ),
+    copyFile(
+      path.resolve(projRoot, 'typings', 'global.d.ts'),
+      path.resolve(epOutput, 'global.d.ts')
     )
-    // copyFile(
-    //   path.resolve(projRoot, 'typings', 'global.d.ts'),
-    //   path.resolve(epOutput, 'global.d.ts')
-    // )
   ])
 
 export const copyFullStyle = async () => {
@@ -50,7 +51,13 @@ export const copyFullStyle = async () => {
 export default series(
   series(
     clean,
-    parallel(buildModules, buildFull, buildResolver, generateTypes),
+    parallel(
+      buildModules,
+      buildFull,
+      buildHelper,
+      buildResolver,
+      generateTypes
+    ),
     series(buildStyle, copyFullStyle)
   ),
   parallel(copyTypesDefinitions, copyFiles)

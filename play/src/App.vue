@@ -1,5 +1,5 @@
 <template>
-  <ScPlateNumber />
+  <sc-plate-number />
 </template>
 
 <script setup lang="ts">
