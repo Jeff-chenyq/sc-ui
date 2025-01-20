@@ -13,7 +13,13 @@ import {
   buildResolver,
   buildHelper
 } from './task'
-import { buildOutput, epPackage, epOutput, projRoot } from './utils/path'
+import {
+  buildOutput,
+  epPackage,
+  epOutput,
+  projRoot,
+  epRoot
+} from './utils/path'
 
 /**
  * 将types文件放入 es，lib文件夹下
@@ -31,7 +37,7 @@ export const copyFiles = () =>
   Promise.all([
     copyFile(epPackage, path.join(epOutput, 'package.json')),
     copyFile(
-      path.resolve(projRoot, 'README.md'),
+      path.resolve(epRoot, 'README.md'),
       path.resolve(epOutput, 'README.md')
     ),
     copyFile(
