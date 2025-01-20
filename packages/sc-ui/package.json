@@ -1,7 +1,7 @@
 {
-  "name": "sc-ui",
-  "version": "1.0.1",
-  "description": "A Component Library for Vue 3",
+  "name": "@jeffchen123/sc-ui",
+  "version": "1.0.3",
+  "description": "vue3 业务组件库",
   "main": "lib/index.js",
   "module": "es/index.mjs",
   "types": "es/index.d.ts",

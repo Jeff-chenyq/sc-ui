@@ -1,6 +1,6 @@
 declare module 'vue' {
   export interface GlobalComponents {
-    ScPlateNumber: (typeof import('sc-ui'))['ScPlateNumber']
+    ScPlateNumber: (typeof import('@jeffchen123/sc-ui'))['ScPlateNumber']
   }
 }
 
