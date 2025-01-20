@@ -15,7 +15,7 @@ plate-number/basic
 
 ## API
 
-### 属性
+### Attributes
 
 | Name  | Description | Type      | Default |
 | ----- | ----------- | --------- | ------- |

@@ -11,7 +11,12 @@
     "gen": "tsx scripts/generate/component.ts",
     "dev": "pnpm -C play dev",
     "build": "gulp --require @esbuild-kit/cjs-loader -f scripts/build/index.ts",
-    "postinstall": "pnpm -C scripts stub"
+    "postinstall": "pnpm -C scripts stub",
+    "lint:lint-staged": "lint-staged",
+    "lint:eslint": "eslint --fix --cache \"**/*.{js,jsx,ts,tsx,vue}\"",
+    "lint:stylelint": "stylelint --fix --cache \"**/*.{css,scss,less,styl,vue}\"",
+    "lint:prettier": "prettier --write  \"**/*.{css,scss,less,styl,js,jsx,ts,tsx,vue}\"",
+    "release": "sh scripts/release.sh"
   },
   "peerDependencies": {
     "vue": "^3.2.0"
