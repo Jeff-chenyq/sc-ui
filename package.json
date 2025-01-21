@@ -8,10 +8,16 @@
     "preinstall": "npx only-allow pnpm",
     "commit": "cz",
     "docs:dev": "pnpm --filter=docs docs:dev",
+    "docs:build": "pnpm -C docs docs:build",
     "gen": "tsx scripts/generate/component.ts",
     "dev": "pnpm -C play dev",
     "build": "gulp --require @esbuild-kit/cjs-loader -f scripts/build/index.ts",
-    "postinstall": "pnpm -C scripts stub"
+    "postinstall": "pnpm -C scripts stub",
+    "lint:lint-staged": "lint-staged",
+    "lint:eslint": "eslint --fix --cache \"**/*.{js,jsx,ts,tsx,vue}\"",
+    "lint:stylelint": "stylelint --fix --cache \"**/*.{css,scss,less,styl,vue}\"",
+    "lint:prettier": "prettier --write  \"**/*.{css,scss,less,styl,js,jsx,ts,tsx,vue}\"",
+    "release": "sh scripts/release.sh"
   },
   "peerDependencies": {
     "vue": "^3.2.0"
@@ -30,6 +36,7 @@
     "lodash-unified": "^1.0.3"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.11",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/cz-commitlint": "^19.5.0",

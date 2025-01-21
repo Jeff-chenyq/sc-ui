@@ -1,4 +1,6 @@
 import path from 'path'
+import commonjs from '@rollup/plugin-commonjs'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { epRoot } from '@sc-ui/build'
 import { rollup } from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
@@ -8,6 +10,8 @@ export async function buildResolver() {
   const bundle = await rollup({
     input: path.resolve(epRoot, 'resolver.ts'),
     plugins: [
+      nodeResolve(),
+      commonjs(),
       esbuild({
         sourceMap: true
       })

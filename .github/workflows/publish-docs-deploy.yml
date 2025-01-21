@@ -1,0 +1,55 @@
+# https://docs.github.com/en/actions/using-workflows/about-workflows
+# 整个工作流的名称
+name: Release
+
+# 监听 main 分支的 push 事件(有更新时)
+on:
+  push:
+    branches:
+      - main
+
+# 所有的 jobs
+jobs:
+  # 定义一个名为 release 的 job
+  release:
+    # 运行环境
+    runs-on: ubuntu-latest
+    # 定义步骤
+    steps:
+      # https://github.com/actions/checkout
+      # 拉取代码
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      # https://github.com/actions/setup-node
+      # 安装 node
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      # https://github.com/pnpm/action-setup
+      # 安装 pnpm
+      - name: Setup Pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 7.x
+
+      # https://pnpm.io/zh/cli/install#--frozen-lockfile
+      # 下载依赖
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      #build
+      - name: Build website
+        run: pnpm docs:build
+        env:
+          DOC_ENV: production
+          NODE_OPTIONS: --max-old-space-size=4096
+
+      # 发布
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/.vitepress/dist

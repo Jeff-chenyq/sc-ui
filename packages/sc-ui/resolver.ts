@@ -5,6 +5,8 @@ import type {
   SideEffectsInfo
 } from 'unplugin-vue-components/types'
 
+const PKG_NAME = '@jeffchen123/sc-ui'
+
 export interface ScUiResolverOptions {
   /**
    * import style css or sass with components
@@ -87,7 +89,7 @@ function resolveComponent(
 
   return {
     name,
-    from: `sc-ui/${ssr ? 'lib' : 'es'}`,
+    from: `${PKG_NAME}/${ssr ? 'lib' : 'es'}`,
     sideEffects: getSideEffects(partialName, options)
   }
 }
@@ -98,8 +100,8 @@ function getSideEffects(
 ): SideEffectsInfo | undefined {
   const { importStyle, ssr } = options
 
-  const themeFolder = 'sc-ui/theme-chalk'
-  const esComponentsFolder = 'sc-ui/es/components'
+  const themeFolder = `${PKG_NAME}/theme-chalk`
+  const esComponentsFolder = `${PKG_NAME}/es/components`
 
   if (importStyle === 'sass') {
     return ssr

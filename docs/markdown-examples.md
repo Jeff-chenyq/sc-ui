@@ -20,10 +20,6 @@ export default {
 ```
 ````
 
-::: demo
-button/simple
-:::
-
 **Output**
 
 ```js{4}
