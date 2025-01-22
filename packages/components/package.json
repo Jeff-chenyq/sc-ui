@@ -2,7 +2,7 @@
   "name": "@sc-ui/components",
   "version": "1.0.0",
   "description": "组件",
-  "main": "index.js",
+  "main": "index.ts",
   "module": "index.ts",
   "unpkg": "index.js",
   "jsdelivr": "index.js",

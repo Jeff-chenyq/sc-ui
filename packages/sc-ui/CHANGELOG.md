@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.5
+
+### Patch Changes
+
+- 添加完整引入
+
 ## 1.0.4
 
 ### Patch Changes

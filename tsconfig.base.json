@@ -19,7 +19,7 @@
       // "@element-plus/*": ["packages/*"],
       // "element-plus": ["packages/element-plus"],
       "@sc-ui/*": ["packages/*"],
-      "sc-ui": ["packages/sc-ui"]
+      "@jeffchen123/sc-ui": ["packages/sc-ui"]
     },
     "preserveSymlinks": true
   }

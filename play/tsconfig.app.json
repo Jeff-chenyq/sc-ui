@@ -5,7 +5,7 @@
   "compilerOptions": {
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "types": ["@jeffchen123/sc-ui/global"],
+    "types": ["node", "@jeffchen123/sc-ui/global"],
     "paths": {
       "@/*": ["./src/*"]
     }
