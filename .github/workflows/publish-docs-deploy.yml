@@ -4,6 +4,7 @@ name: Publish Docs Deploy
 
 # 监听 main 分支的 push 事件(有更新时)
 on:
+  workflow_dispatch:
   push:
     branches:
       - main

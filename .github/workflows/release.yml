@@ -4,6 +4,7 @@ name: Release
 
 # 监听 main 分支的 push 事件(有更新时)
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -51,7 +52,7 @@ jobs:
           # 消耗 changeset 文件的命令；不需要自定义可不填
           version: pnpm changeset version
           # 提交的信息是什么；如果有 commitlint 验证，需要更改。
-          commit: "chore: version packages"
+          commit: 'chore: version packages'
         # 此步骤的环境变量，下一步讲解
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
