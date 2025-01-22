@@ -34,7 +34,7 @@ jobs:
       - name: Setup Pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 7.x
+          version: 8.x
 
       # https://pnpm.io/zh/cli/install#--frozen-lockfile
       # 下载依赖
