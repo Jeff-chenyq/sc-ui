@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.6
+
+### Patch Changes
+
+- 全局引入，组件编辑器提示问题修复
+
 ## 1.0.5
 
 ### Patch Changes
