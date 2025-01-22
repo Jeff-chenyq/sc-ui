@@ -20,7 +20,7 @@ export const generateExternal = (options: { full: boolean }) => {
   const packages: string[] = peerDependencies
 
   if (options.full) {
-    packages.push('@vue', ...dependencies)
+    packages.push('@vue', 'element-plus', ...dependencies)
   }
 
   return (id: string) => {

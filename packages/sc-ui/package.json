@@ -49,7 +49,8 @@
   "unpkg": "dist/index.full.js",
   "jsdelivr": "dist/index.full.js",
   "peerDependencies": {
-    "vue": "^3.2.0"
+    "vue": "^3.2.0",
+    "element-plus": "^2.9.3"
   },
   "keywords": [
     "sc-ui",
