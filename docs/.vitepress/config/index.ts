@@ -5,6 +5,7 @@ import { sidebar } from './sidebars'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? '/scui/' : '/',
   lang: 'zh-CN',
   title: 'ScUI',
   description: 'JeffChen 业务组件库',

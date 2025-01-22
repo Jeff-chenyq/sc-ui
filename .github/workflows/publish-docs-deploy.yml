@@ -41,6 +41,9 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Install latest sc-ui
+        run: cd docs && pnpm i @jeffchen123/sc-ui@latest
+
       #build
       - name: Build website
         run: pnpm docs:build
