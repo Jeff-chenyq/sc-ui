@@ -16,13 +16,13 @@ lang: zh-CN
 ```ts
 // main.ts
 import { createApp } from 'vue'
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+import ScUI from '@jeffchen123/sc-ui'
+import '@jeffchen123/sc-ui/dist/index.css'
 import App from './App.vue'
 
 const app = createApp(App)
 
-app.use(ElementPlus)
+app.use(ScUI)
 app.mount('#app')
 ```
 
@@ -35,7 +35,7 @@ app.mount('#app')
 {
   "compilerOptions": {
     // ...
-    "types": ["sc-ui/global"]
+    "types": ["@jeffchen123/sc-ui/global"]
   }
 }
 ```
@@ -62,17 +62,17 @@ import { defineConfig } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 // 已经将resolver 打包在组件库中
-import { ScUiResolver } from 'sc-ui/es/resolver'
+import { ScUIResolver } from '@jeffchen123/sc-ui/es/resolver'
 
 export default defineConfig({
   // ...
   plugins: [
     // ...
     AutoImport({
-      resolvers: [ScUiResolver()]
+      resolvers: [ScUIResolver()]
     }),
     Components({
-      resolvers: [ScUiResolver()]
+      resolvers: [ScUIResolver()]
     })
   ]
 })

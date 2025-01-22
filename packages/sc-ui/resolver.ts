@@ -7,7 +7,7 @@ import type {
 
 const PKG_NAME = '@jeffchen123/sc-ui'
 
-export interface ScUiResolverOptions {
+export interface ScUIResolverOptions {
   /**
    * import style css or sass with components
    *
@@ -33,10 +33,10 @@ export interface ScUiResolverOptions {
 
 const noStylesComponents: string[] = []
 
-export function ScUiResolver(
-  options: ScUiResolverOptions = {}
+export function ScUIResolver(
+  options: ScUIResolverOptions = {}
 ): ComponentResolver[] {
-  let optionsResolved: ScUiResolverOptions
+  let optionsResolved: ScUIResolverOptions
 
   function resolveOptions() {
     if (optionsResolved) return optionsResolved
@@ -77,7 +77,7 @@ export function ScUiResolver(
 
 function resolveComponent(
   name: string,
-  options: ScUiResolverOptions
+  options: ScUIResolverOptions
 ): ComponentInfo | undefined {
   if (options.exclude && name.match(options.exclude)) return
 
@@ -96,7 +96,7 @@ function resolveComponent(
 
 function getSideEffects(
   name: string,
-  options: ScUiResolverOptions
+  options: ScUIResolverOptions
 ): SideEffectsInfo | undefined {
   const { importStyle, ssr } = options
 
