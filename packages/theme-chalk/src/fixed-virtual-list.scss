@@ -1,0 +1,15 @@
+@use 'mixins/mixins' as *;
+
+@include b(fixed-virtual-list) {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+  @include e(placeholder) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+  }
+}

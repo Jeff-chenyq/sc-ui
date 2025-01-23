@@ -24,6 +24,14 @@ function getComponentSidebar(): DefaultTheme.SidebarItem[] {
         {
           link: '/plate-number',
           text: 'PlateNumber 车牌组件'
+        },
+        {
+          link: '/fixed-virtual-list',
+          text: 'FixedVirtualList 定高虚拟列表'
+        },
+        {
+          link: '/dynamic-virtual-list',
+          text: 'DynamicVirtualList 动态虚拟列表'
         }
       ]
     }
