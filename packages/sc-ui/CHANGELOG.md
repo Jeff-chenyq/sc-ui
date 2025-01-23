@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.7
+
+### Patch Changes
+
+- 新增定高，不定高虚拟列表组件
+
 ## 1.0.6
 
 ### Patch Changes
