@@ -9,9 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import { ScDynamicVirtualList } from '@sc-ui/components'
-import '@sc-ui/components/dynamic-virtual-list/style'
-
 const list = Array.from({ length: 10000 }).map((_, index) => {
   return {
     size: Math.floor(50 + Math.random() * 5),

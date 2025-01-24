@@ -9,9 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import { ScFixedVirtualList } from '@sc-ui/components'
-import '@sc-ui/components/fixed-virtual-list/style'
-
 const list = Array.from({ length: 10000 }).map((_, i) => i)
 </script>
 <style lang="scss" scoped>
