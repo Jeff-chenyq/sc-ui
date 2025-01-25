@@ -100,6 +100,7 @@ onUpdated(() => {
  * 初始化位置
  */
 function initPositions(list: any[]) {
+  startIndex.value = 0
   positions.value = list.map((_, index) => {
     return {
       index,

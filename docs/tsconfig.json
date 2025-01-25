@@ -15,8 +15,9 @@
       "@jeffchen123/sc-ui": ["../packages/sc-ui"],
       "~/*": ["./.vitepress/vitepress/*"]
     },
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "types": ["element-plus/global"]
   },
-  "include": ["**/*", ".vitepress/**/*", "../typings/global.d.ts"],
+  "include": ["**/*", ".vitepress/**/*", "../typings/global.d.ts", "env.d.ts"],
   "exclude": ["node_modules"]
 }

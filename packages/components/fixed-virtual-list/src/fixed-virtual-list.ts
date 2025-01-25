@@ -25,6 +25,11 @@ export const fixedVirtualListProps = buildProps({
   keep: {
     type: Number,
     default: 5
+  },
+
+  dataKey: {
+    type: String,
+    required: true
   }
 } as const)
 

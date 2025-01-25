@@ -12,6 +12,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav,
+    logo: '/images/smarty.svg',
     sidebar,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Jeff-chenyq/sc-ui' }

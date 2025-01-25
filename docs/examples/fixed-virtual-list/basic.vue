@@ -1,15 +1,15 @@
 <template>
   <div class="wrap">
-    <ScFixedVirtualList :list="list">
-      <template #default="{ data }">
-        <div>{{ data }}</div>
+    <ScFixedVirtualList :list="list" :data-key="'id'">
+      <template #default="{ data: { id } }">
+        <div>{{ id }}</div>
       </template>
     </ScFixedVirtualList>
   </div>
 </template>
 
 <script setup lang="ts">
-const list = Array.from({ length: 10000 }).map((_, i) => i)
+const list = Array.from({ length: 10000 }).map((_, i) => ({ id: i }))
 </script>
 <style lang="scss" scoped>
 .wrap {

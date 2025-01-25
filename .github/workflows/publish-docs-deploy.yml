@@ -11,7 +11,7 @@ on:
 
 # 所有的 jobs
 jobs:
-  # 定义一个名为 release 的 job
+  # 定义一个名为 deploy-docs 的 job
   deploy-docs:
     # 运行环境
     runs-on: ubuntu-latest
