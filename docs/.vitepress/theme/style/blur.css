@@ -1,0 +1,8 @@
+/* .vitepress\theme\style\blur.css */
+:root {
+  /* 首页下滑后导航透明 */
+  .VPNavBar:not(.has-sidebar, .home.top) {
+    background-color: transparent !important;
+    backdrop-filter: blur(10px);
+  }
+}

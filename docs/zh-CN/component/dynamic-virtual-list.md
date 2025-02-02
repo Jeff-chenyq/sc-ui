@@ -24,6 +24,6 @@ dynamic-virtual-list/basic
 
 ### Slots
 
-| Name    | Description               | Type                                     |
-| ------- | ------------------------- | ---------------------------------------- |
-| default | customize default content | ^[object]`{ data: Record<string, any> }` |
+| Name    | Description    | Type                                     |
+| ------- | -------------- | ---------------------------------------- |
+| default | 自定义渲染内容 | ^[object]`{ data: Record<string, any> }` |

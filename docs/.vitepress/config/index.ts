@@ -6,6 +6,7 @@ import { sidebar } from './sidebars'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/sc-ui/' : '/',
+  appearance: false,
   lang: 'zh-CN',
   title: 'ScUI',
   description: 'JeffChen 业务组件库',
@@ -38,6 +39,10 @@ export default defineConfig({
     }
   },
   markdown: {
+    image: {
+      // 开启图片懒加载
+      lazyLoading: true
+    },
     config: (md) => mdPlugin(md)
   }
 })
