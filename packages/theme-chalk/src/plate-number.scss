@@ -1,6 +1,73 @@
 @use 'mixins/mixins' as *;
+@use 'common/var' as *;
 
 @include b(plate-number) {
-  //TODO
-  color: red;
+  box-sizing: border-box;
+  @include e(input) {
+    width: 100%;
+  }
+
+  @include e(panel) {
+    @include m(input) {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      input {
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+
+        @include when('active') {
+          border-color: $color-primary;
+        }
+      }
+    }
+  }
+
+  @include e(popover) {
+    padding: 30px 20px 20px !important;
+  }
+
+  @include e(tip) {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 12px;
+    color: $color-success;
+    letter-spacing: 1px;
+  }
+
+  @include e(panel) {
+    @include m(num) {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      place-items: center;
+      margin-top: 10px;
+      border-top: 1px solid var(--border-color);
+      border-left: 1px solid var(--border-color);
+    }
+  }
+
+  @include m(keyboard) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-left: none;
+    @include when('delete') {
+      background-color: $color-primary;
+
+      svg {
+        color: $color-white;
+      }
+    }
+  }
 }

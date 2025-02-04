@@ -17,7 +17,8 @@ export default [
       'vue/require-prop-types': 'off',
       'vue/require-default-prop': 'off',
       'vue/multi-word-component-names': 'off',
-      'vue/prefer-import-from-vue': 'off'
+      'vue/prefer-import-from-vue': 'off',
+      'vue/require-v-for-key': 'off'
     }
   },
   {

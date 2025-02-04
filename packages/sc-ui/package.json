@@ -50,7 +50,8 @@
   "jsdelivr": "dist/index.full.js",
   "peerDependencies": {
     "vue": "^3.2.0",
-    "element-plus": "^2.9.3"
+    "element-plus": "^2.9.3",
+    "@element-plus/icons-vue": "^2.3.1"
   },
   "keywords": [
     "sc-ui",

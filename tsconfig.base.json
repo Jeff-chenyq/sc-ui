@@ -17,7 +17,7 @@
     "types": [],
     "paths": {
       // "@element-plus/*": ["packages/*"],
-      // "element-plus": ["packages/element-plus"],
+      "element-plus": ["element-plus/global"],
       "@sc-ui/*": ["packages/*"],
       "@jeffchen123/sc-ui": ["packages/sc-ui"]
     },

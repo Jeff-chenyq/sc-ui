@@ -20,8 +20,8 @@
     "release": "sh scripts/release.sh"
   },
   "peerDependencies": {
-    "vue": "^3.2.0",
-    "element-plus": "^2.9.3"
+    "element-plus": "^2.9.3",
+    "vue": "^3.2.0"
   },
   "keywords": [],
   "author": "",
@@ -29,12 +29,13 @@
   "dependencies": {
     "@sc-ui/build": "workspace:*",
     "@sc-ui/components": "workspace:*",
+    "@sc-ui/constants": "workspace:*",
     "@sc-ui/eslint-config": "workspace:*",
     "@sc-ui/hooks": "workspace:*",
-    "@sc-ui/constants": "workspace:*",
     "@sc-ui/stylelint-config": "workspace:*",
     "@sc-ui/theme-chalk": "workspace:*",
     "@sc-ui/utils": "workspace:*",
+    "@vueuse/core": "^11.2.0",
     "lodash-unified": "^1.0.3"
   },
   "devDependencies": {
@@ -42,6 +43,7 @@
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/cz-commitlint": "^19.5.0",
+    "@element-plus/icons-vue": "^2.3.1",
     "@esbuild-kit/cjs-loader": "^2.3.3",
     "@eslint/js": "^9.12.0",
     "@rollup/plugin-commonjs": "^28.0.2",
