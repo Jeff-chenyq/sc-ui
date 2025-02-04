@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.9
+
+### Patch Changes
+
+- 修复plate-number样式丢失问题
+
 ## 1.0.8
 
 ### Patch Changes
