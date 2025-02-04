@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.8
+
+### Patch Changes
+
+- 新增plate-number组件
+
 ## 1.0.7
 
 ### Patch Changes

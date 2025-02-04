@@ -18,6 +18,10 @@ plate-number/basic
 
 ### Attributes
 
-| Name  | Description | Type      | Default |
-| ----- | ----------- | --------- | ------- |
-| value | 初始值      | ^[string] | ''      |
+| Name                  | Description      | Type                                                                                                                                                                        | Default        |
+| --------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| model-value / v-model | 绑定值           | ^[string]                                                                                                                                                                   | —              |
+| placement             | 出现位置         | ^[enum]`'top' \| 'top-start' \| 'top-end' \| 'bottom' \| 'bottom-start' \| 'bottom-end' \| 'left' \| 'left-start' \| 'left-end' \| 'right' \| 'right-start' \| 'right-end'` | bottom-start   |
+| placeholder           | 占位符           | ^[string]                                                                                                                                                                   | 请输入号牌号码 |
+| disabled              | 是否禁用         | ^[boolean]                                                                                                                                                                  | false          |
+| clearable             | 是否显示清除按钮 | ^[boolean]                                                                                                                                                                  | false          |

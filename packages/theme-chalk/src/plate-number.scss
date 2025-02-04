@@ -18,7 +18,7 @@
         height: 35px;
         text-align: center;
         cursor: pointer;
-        border: 1px solid var(--border-color);
+        border: 1px solid getCssVar('border-color');
         border-radius: 4px;
 
         @include when('active') {
@@ -47,8 +47,8 @@
       grid-template-columns: repeat(10, 1fr);
       place-items: center;
       margin-top: 10px;
-      border-top: 1px solid var(--border-color);
-      border-left: 1px solid var(--border-color);
+      border-top: 1px solid getCssVar('border-color');
+      border-left: 1px solid getCssVar('border-color');
     }
   }
 
@@ -59,7 +59,7 @@
     width: 35px;
     height: 35px;
     cursor: pointer;
-    border: 1px solid var(--border-color);
+    border: 1px solid getCssVar('border-color');
     border-top: none;
     border-left: none;
     @include when('delete') {
