@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.11
+
+### Patch Changes
+
+- 修复text-ellipsis未设置行高导致展示错误问题
+
 ## 1.0.10
 
 ### Patch Changes
