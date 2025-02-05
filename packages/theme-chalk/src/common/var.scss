@@ -280,3 +280,12 @@ $mask-color: map.merge(
   ),
   $mask-color
 );
+
+// text-ellipsis
+$text-ellipsis: () !default;
+$text-ellipsis: map.merge(
+  (
+    'font-line-height': 16px
+  ),
+  $text-ellipsis
+);

@@ -91,7 +91,7 @@ export default defineComponent({
 
     function calcEllipsisText(container: HTMLElement, maxHeight: number) {
       const { content, dots, expandText } = props
-      const end = content.length - 1
+      const end = content.length
 
       const actionHtml = slots.action
         ? (actionRef.value?.outerHTML ?? '')

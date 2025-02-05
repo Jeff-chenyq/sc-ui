@@ -1,8 +1,10 @@
 @use 'mixins/mixins' as *;
 @use 'common/var' as *;
+@use 'sass:map';
 
 @include b(text-ellipsis) {
   box-sizing: border-box;
+  line-height: map.get($text-ellipsis, 'font-line-height');
   @include e(action) {
     color: $color-primary;
     cursor: pointer;
