@@ -28,7 +28,7 @@ const getCreatedFiles = (name: string, type?: string) => {
       template: 'index.ts.tpl' // 由哪个模板生成文件
     },
     {
-      file: `src/${name}.ts`,
+      file: type === 'tsx' ? 'src/utils.ts' : `src/${name}.ts`,
       template: 'src.props.ts.tpl'
     },
     type === 'tsx'

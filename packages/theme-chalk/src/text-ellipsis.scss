@@ -1,0 +1,10 @@
+@use 'mixins/mixins' as *;
+@use 'common/var' as *;
+
+@include b(text-ellipsis) {
+  box-sizing: border-box;
+  @include e(action) {
+    color: $color-primary;
+    cursor: pointer;
+  }
+}

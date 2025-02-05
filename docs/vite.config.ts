@@ -1,10 +1,11 @@
 // import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { projRoot } from '@sc-ui/build'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [],
+  plugins: [vueJsx()],
   resolve: {
     alias: [
       // ...(process.env.DOC_ENV !== 'production'

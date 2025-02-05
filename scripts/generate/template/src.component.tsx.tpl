@@ -1,17 +1,17 @@
+import { useNamespace } from '@sc-ui/hooks'
 import { defineComponent } from 'vue'
-import { createNamespace } from '../../utils'
-import { <%= camelCaseName %>Props } from './props'
+import { <%= camelCaseName %>Props } from './utils'
 
-const [name, bem] = createNamespace('<%= name %>')
+const ns = useNamespace('<%= name %>')
 
 export default defineComponent({
-  name,
+  name: 'Sc<%= pascalCaseName %>',
 
   props: <%= camelCaseName %>Props,
 
-  emits: ['click'],
+  emits: [],
 
-  setup() {
-    return () => <button class={bem()}><%= pascalCaseName %></button>
-  },
+  setup(props, { emit, slots }) {
+    return () => <div class={ns.b()}><%= pascalCaseName %></div>
+  }
 })

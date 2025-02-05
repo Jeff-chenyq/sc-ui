@@ -32,6 +32,10 @@ function getComponentSidebar(): DefaultTheme.SidebarItem[] {
         {
           link: '/dynamic-virtual-list',
           text: 'DynamicVirtualList 动态虚拟列表'
+        },
+        {
+          link: '/text-ellipsis',
+          text: 'TextEllipsis 文本省略'
         }
       ]
     }

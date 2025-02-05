@@ -3,6 +3,7 @@ declare module 'vue' {
     ScPlateNumber: (typeof import('@jeffchen123/sc-ui'))['ScPlateNumber']
     ScFixedVirtualList: (typeof import('@jeffchen123/sc-ui'))['ScFixedVirtualList']
     ScDynamicVirtualList: (typeof import('@jeffchen123/sc-ui'))['ScDynamicVirtualList']
+    ScTextEllipsis: (typeof import('@jeffchen123/sc-ui'))['ScTextEllipsis']
   }
 }
 

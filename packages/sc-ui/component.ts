@@ -2,7 +2,8 @@ import {
   ScPlateNumber,
   ScPlateNumberShow,
   ScFixedVirtualList,
-  ScDynamicVirtualList
+  ScDynamicVirtualList,
+  ScTextEllipsis
 } from '@sc-ui/components'
 
 import type { Plugin } from 'vue'
@@ -11,5 +12,6 @@ export default [
   ScPlateNumber,
   ScPlateNumberShow,
   ScFixedVirtualList,
-  ScDynamicVirtualList
+  ScDynamicVirtualList,
+  ScTextEllipsis
 ] as Plugin[]
