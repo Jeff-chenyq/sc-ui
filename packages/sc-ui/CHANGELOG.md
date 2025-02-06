@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.12
+
+### Patch Changes
+
+- 新增放大镜组件
+
 ## 1.0.11
 
 ### Patch Changes
