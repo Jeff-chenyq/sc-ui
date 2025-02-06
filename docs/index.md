@@ -18,7 +18,7 @@ hero:
       link: /zh-CN/guide/quickstart
     - theme: alt
       text: 组件
-      link: /zh-CN/component/plate-number
+      link: /zh-CN/component/text-ellipsis
 
 features:
   - icon: ⚡️

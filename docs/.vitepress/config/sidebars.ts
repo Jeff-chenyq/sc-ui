@@ -22,6 +22,10 @@ function getComponentSidebar(): DefaultTheme.SidebarItem[] {
       text: '组件',
       items: [
         {
+          link: '/text-ellipsis',
+          text: 'TextEllipsis 文本省略'
+        },
+        {
           link: '/plate-number',
           text: 'PlateNumber 车牌组件'
         },
@@ -32,10 +36,6 @@ function getComponentSidebar(): DefaultTheme.SidebarItem[] {
         {
           link: '/dynamic-virtual-list',
           text: 'DynamicVirtualList 动态虚拟列表'
-        },
-        {
-          link: '/text-ellipsis',
-          text: 'TextEllipsis 文本省略'
         }
       ]
     }

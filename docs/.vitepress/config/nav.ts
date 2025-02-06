@@ -10,7 +10,7 @@ export default [
   },
   {
     text: '组件',
-    link: '/zh-CN/component/plate-number',
+    link: '/zh-CN/component/text-ellipsis',
     activeMatch: '/component/'
   }
 ]
