@@ -31,20 +31,18 @@ pnpm 使用 18.16.0，使用20.9.0的时候，安装子包报错，后续查看�
 
 3.组件库编辑器提示
 
-## Link local dependencies
+## 链接本地依赖
 
 ```shell
 # get dist
 pnpm build
-cd dist/element-plus
-# set cur element-plus to global `node_modules`
+cd dist/sc-ui
+# set cur sc-ui to global `node_modules`
 pnpm link --global
-# for esm we also need link element-plus for dist
-pnpm link --global element-plus
+# for esm we also need link sc-ui for dist
+pnpm link --global @jeffchen123/sc-ui
 
-# go to your project, link to `element-plus`
+# go to your project, link to `sc-ui`
 cd your-project
-pnpm link --global element-plus
+pnpm link --global @jeffchen123/sc-ui
 ```
-
-test

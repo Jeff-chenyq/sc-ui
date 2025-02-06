@@ -4,6 +4,7 @@ declare module 'vue' {
     ScFixedVirtualList: (typeof import('@jeffchen123/sc-ui'))['ScFixedVirtualList']
     ScDynamicVirtualList: (typeof import('@jeffchen123/sc-ui'))['ScDynamicVirtualList']
     ScTextEllipsis: (typeof import('@jeffchen123/sc-ui'))['ScTextEllipsis']
+    ScMagnifier: (typeof import('@jeffchen123/sc-ui'))['ScMagnifier']
   }
 }
 

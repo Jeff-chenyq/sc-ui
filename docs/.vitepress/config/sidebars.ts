@@ -36,6 +36,10 @@ function getComponentSidebar(): DefaultTheme.SidebarItem[] {
         {
           link: '/dynamic-virtual-list',
           text: 'DynamicVirtualList 动态虚拟列表'
+        },
+        {
+          link: '/magnifier',
+          text: 'Magnifier 放大镜'
         }
       ]
     }
