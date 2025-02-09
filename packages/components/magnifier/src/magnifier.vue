@@ -183,9 +183,9 @@ function bindEvents() {
 }
 
 function unbindEvents() {
-  imgRef.value.removeEventListener('mousemove', handleMouseMove)
-  imgRef.value.removeEventListener('mouseout', handleMouseOut)
-  resizeOberver.disconnect()
+  imgRef.value?.removeEventListener('mousemove', handleMouseMove)
+  imgRef.value?.removeEventListener('mouseout', handleMouseOut)
+  resizeOberver?.disconnect()
   resizeOberver = null
 }
 

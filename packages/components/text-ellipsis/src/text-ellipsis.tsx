@@ -22,7 +22,7 @@ export default defineComponent({
 
   props: textEllipsisProps,
 
-  emits: ['click'],
+  emits: [],
 
   setup(props, { emit, slots }) {
     const text = ref(props.content)

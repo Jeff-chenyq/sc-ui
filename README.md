@@ -2,6 +2,10 @@
 
 创建一个属于自己的简易 vue3 组件库，整合业务组件，实现组件快速复用，可维护
 
+# 在线文档地址
+
+https://jeff-chenyq.github.io/sc-ui/
+
 # 参考链接
 
 https://www.ydisp.cn/developer/118154.html

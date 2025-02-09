@@ -40,6 +40,10 @@ function getComponentSidebar(): DefaultTheme.SidebarItem[] {
         {
           link: '/magnifier',
           text: 'Magnifier 放大镜'
+        },
+        {
+          link: '/schema-form',
+          text: 'SchemaForm 配置表单'
         }
       ]
     }

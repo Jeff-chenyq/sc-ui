@@ -5,6 +5,7 @@ declare module 'vue' {
     ScDynamicVirtualList: (typeof import('@jeffchen123/sc-ui'))['ScDynamicVirtualList']
     ScTextEllipsis: (typeof import('@jeffchen123/sc-ui'))['ScTextEllipsis']
     ScMagnifier: (typeof import('@jeffchen123/sc-ui'))['ScMagnifier']
+    ScSchemaForm: (typeof import('@jeffchen123/sc-ui'))['ScSchemaForm']
   }
 }
 

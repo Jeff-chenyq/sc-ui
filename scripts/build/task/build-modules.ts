@@ -1,6 +1,5 @@
 import path from 'path'
 import commonjs from '@rollup/plugin-commonjs'
-import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -9,6 +8,7 @@ import { series } from 'gulp'
 import { rollup } from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
 import vueDefineOptions from 'unplugin-vue-define-options/rollup'
+import autoImportElementPlusStyles from '../../plugins/auto-import-element-plus'
 import { ScUiAlias } from '../../plugins/sc-ui-alias'
 import { target, buildConfigEntries } from '../build-info'
 import { epRoot, pkgRoot } from '../utils/path'
@@ -20,6 +20,7 @@ const plugins = [
   vueDefineOptions(),
   vue(),
   vueJsx(),
+  autoImportElementPlusStyles(),
   // 用于解析Node.js模块。它可以让Rollup打包时使用Node.js模块（包括外部依赖），而不仅仅是ES模块
   nodeResolve(),
   commonjs(),
@@ -34,8 +35,7 @@ const plugins = [
     //   '.vue': 'ts'
     // },
     // tsconfig: path.resolve(__dirname, '../../tsconfig.json')
-  }),
-  json()
+  })
 ]
 
 export const buildModulesComponents = async () => {
