@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.13
+
+### Patch Changes
+
+- 新增schema-form组件
+
 ## 1.0.12
 
 ### Patch Changes
