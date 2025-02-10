@@ -25,7 +25,13 @@ export interface SchemaFormItem {
    */
   formItemProps?: {
     gridItem?: {
+      /**
+       * @description 是否占满整行(当此参数为true时，gridItem中的gridStyle将失效)
+       */
       isFull?: boolean
+      /**
+       * @description grid-column样式
+       */
       gridStyle?: string
     }
     [key: string]: any

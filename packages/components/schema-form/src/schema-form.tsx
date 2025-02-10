@@ -135,8 +135,8 @@ export default defineComponent({
               {optionList?.map((option) => (
                 <Child
                   key={option[valueKey]}
-                  label={option[labelKey] || 'label'}
-                  value={option[valueKey] || 'value'}
+                  label={option[labelKey || 'label']}
+                  value={option[valueKey || 'value']}
                 />
               ))}
             </Comp>
