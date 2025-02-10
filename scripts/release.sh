@@ -1,12 +1,17 @@
 #!/bin/bash
 set -e
 
+git status
+
 pnpm changeset
 pnpm changeset version
 
 # version
 version=$(node -p "require(process.cwd() + '/packages/sc-ui/package.json').version")
-echo "Version: $version"
+
+git add .
+git commit -m "chore(version): $version"
+git push
 
 # commit
 npm version $VERSION --message "[release] $VERSION"
