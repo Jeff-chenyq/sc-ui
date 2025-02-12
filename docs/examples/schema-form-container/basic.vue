@@ -1,14 +1,18 @@
 <template>
-  <el-button :type="'primary'" @click="reset">重置</el-button>
-  <sc-schema-form
+  <div class="value">
+    <div>form的值：</div>
+    <div>{{ JSON.stringify(form) }}</div>
+  </div>
+
+  <sc-schema-form-container
     ref="formRef"
     :form-item-list="formItemList"
     :model="form"
     :rules="rules"
-  />
-
-  <div>form的值：</div>
-  <div class="value">{{ JSON.stringify(form) }}</div>
+    :on-reset="reset"
+    :on-seatch="search"
+  >
+  </sc-schema-form-container>
 </template>
 
 <script setup lang="tsx">
@@ -50,13 +54,13 @@ const formItemList = computed(
           onInput: (e: string) => {
             console.log(e, 'input')
           }
-        },
-        fieldSlots: {
-          prefix: () => <div>prefix</div>,
-          suffix: () => <div>suffix</div>,
-          prepend: () => <div>prepend</div>,
-          append: () => <div>append</div>
         }
+        // fieldSlots: {
+        //   prefix: () => <div>prefix</div>,
+        //   suffix: () => <div>suffix</div>,
+        //   prepend: () => <div>prepend</div>,
+        //   append: () => <div>append</div>
+        // }
       },
       {
         compType: 'INPUT_NUMBER',
@@ -159,14 +163,17 @@ const formItemList = computed(
 const formRef = ref()
 
 function reset() {
-  console.log(formRef.value.resetFields, '??')
+  console.log('reset')
+}
 
-  formRef.value?.resetFields?.()
+function search() {
+  console.log('search')
 }
 </script>
 
 <style lang="scss" scoped>
 .value {
+  margin-bottom: 20px;
   word-break: break-all;
 }
 </style>

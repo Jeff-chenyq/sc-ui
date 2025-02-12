@@ -33,13 +33,16 @@ export default defineComponent({
 
     const gridColumns = computed(() => {
       if (props.gridCols === 'auto') {
-        return `repeat(auto-fill, minmax(${props.gridFr}px, auto))`
+        return `repeat(auto-fill, minmax(${props.gridFr}px, 1fr))`
       }
       return `repeat(${props.gridCols}, 1fr)`
     })
 
     const gridStyle = computed(() => {
-      if (!props.gridLayout) return {}
+      if (!props.gridLayout)
+        return {
+          gap: props.gridGap
+        }
 
       return {
         'grid-template-columns': gridColumns.value,
@@ -175,11 +178,23 @@ export default defineComponent({
       )
     }
 
+    function getLabelWidth() {
+      let max = -Infinity
+      for (const item of props.formItemList) {
+        if (item.label.length > max) {
+          max = item.label.length
+        }
+      }
+
+      return max + 2 + 'em'
+    }
+
     const elFormRef = ref<InstanceType<typeof ElForm>>()
 
-    // 暴露 ElForm 的方法
-    onMounted(() => {
+    function exposeAllMethods() {
       if (elFormRef.value) {
+        props.getInstance?.(elFormRef.value)
+
         const methodObj = {}
         const entries = Object.entries(elFormRef.value)
         for (const [method, fn] of entries) {
@@ -187,14 +202,29 @@ export default defineComponent({
         }
 
         expose(methodObj)
+      } else {
+        console.error('elFormRef is undefined')
       }
+    }
+
+    // 暴露 ElForm 的方法
+    onMounted(() => {
+      exposeAllMethods()
     })
 
     return () => (
-      <ElForm ref={elFormRef} class={ns.b()} {...props} {...attrs}>
+      <ElForm
+        ref={elFormRef}
+        class={ns.b()}
+        {...props}
+        {...attrs}
+        label-width={
+          !props.isAutoLabelWidth ? props.labelWidth : getLabelWidth()
+        }>
         <div class={ns.e('grid-layout')} style={gridStyle.value}>
           {props.formItemList.map((item) => renderFormItem(item))}
         </div>
+        {slots.other?.()}
       </ElForm>
     )
   }

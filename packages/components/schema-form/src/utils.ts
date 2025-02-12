@@ -22,7 +22,7 @@ export const schemaFormProps = buildProps({
 
   gridGap: {
     type: String,
-    default: '0 16px'
+    default: '16px'
   },
 
   /**
@@ -30,7 +30,7 @@ export const schemaFormProps = buildProps({
    */
   gridFr: {
     type: Number,
-    default: 200
+    default: 250
   },
 
   labelSuffix: {
@@ -46,6 +46,15 @@ export const schemaFormProps = buildProps({
   formItemList: {
     type: definePropType<SchemaFormItem[]>(Array),
     required: true
+  },
+
+  isAutoLabelWidth: {
+    type: Boolean,
+    default: true
+  },
+
+  getInstance: {
+    type: Function
   }
 } as const)
 

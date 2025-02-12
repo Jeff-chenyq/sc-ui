@@ -44,6 +44,10 @@ function getComponentSidebar(): DefaultTheme.SidebarItem[] {
         {
           link: '/schema-form',
           text: 'SchemaForm 配置表单'
+        },
+        {
+          link: '/schema-form-container',
+          text: 'SchemaFormContainer 查询容器组件'
         }
       ]
     }

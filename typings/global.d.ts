@@ -6,6 +6,7 @@ declare module 'vue' {
     ScTextEllipsis: (typeof import('@jeffchen123/sc-ui'))['ScTextEllipsis']
     ScMagnifier: (typeof import('@jeffchen123/sc-ui'))['ScMagnifier']
     ScSchemaForm: (typeof import('@jeffchen123/sc-ui'))['ScSchemaForm']
+    ScSchemaFormContainer: (typeof import('@jeffchen123/sc-ui'))['ScSchemaFormContainer']
   }
 }
 

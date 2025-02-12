@@ -25,15 +25,16 @@ schema-form/grid
 
 透传ElForm 所有的属性
 
-| Name           | Description                                                                                            | Type                            | Default |
-| -------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------- | ------- |
-| model          | 表单数据                                                                                               | ^[Object]`<Record<string, any>` | -       |
-| label-suffix   | 表单域标签的后缀                                                                                       | ^[string]                       | :       |
-| form-item-list | 表单域配置项（SchemFormItem参考类型声明注释）                                                          | ^[Array]`SchemaFormItem[]`      | []      |
-| grid-layout    | 是否开启grid布局                                                                                       | ^[boolean]                      | false   |
-| grid-cols      | 一行几列                                                                                               | ^[number] / ^[auto]             | 2       |
-| grid-gap       | grid gap属性                                                                                           | ^[string]                       | 0 16px  |
-| grid-fr        | 当 gridCols 为 auto 时,自适应列宽宽度`grid-template-columns: repeat(auto-fill, minmax(${fr}px, auto))` | ^[number]                       | 200     |
+| Name                | Description                                                                                                                     | Type                            | Default |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------- |
+| model               | 表单数据                                                                                                                        | ^[Object]`<Record<string, any>` | -       |
+| label-suffix        | 表单域标签的后缀                                                                                                                | ^[string]                       | :       |
+| form-item-list      | 表单域配置项（SchemFormItem参考类型声明注释）                                                                                   | ^[Array]`SchemaFormItem[]`      | []      |
+| grid-layout         | 是否开启grid布局                                                                                                                | ^[boolean]                      | false   |
+| grid-cols           | 一行几列                                                                                                                        | ^[number] / ^[auto]             | 2       |
+| grid-gap            | grid gap属性                                                                                                                    | ^[string]                       | 16px    |
+| grid-fr             | 当 gridCols 为 auto 时,自适应列宽宽度`grid-template-columns: repeat(auto-fill, minmax(${fr}px, auto))`                          | ^[number]                       | 250     |
+| is-auto-label-width | 是否自动计算label的宽度（计算方式为所有label中最多字数 + 2）em，当自定义label，或者其他情况，导致labelWidth不准，可以关闭该配置 | ^[boolean]                      | true    |
 
 ### Methods
 

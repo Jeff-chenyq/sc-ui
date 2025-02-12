@@ -61,7 +61,8 @@ const build = async (minify: boolean) => {
       name: PKG_CAMELCASE_NAME,
       globals: {
         vue: 'Vue',
-        'element-plus': 'ElementPlus'
+        'element-plus': 'ElementPlus',
+        '@element-plus/icons-vue': 'ElementPlusIconsVue'
       },
       sourcemap: minify
     })

@@ -5,7 +5,8 @@ import {
   ScDynamicVirtualList,
   ScTextEllipsis,
   ScMagnifier,
-  ScSchemaForm
+  ScSchemaForm,
+  ScSchemaFormContainer
 } from '@sc-ui/components'
 
 import type { Plugin } from 'vue'
@@ -17,5 +18,6 @@ export default [
   ScDynamicVirtualList,
   ScTextEllipsis,
   ScMagnifier,
-  ScSchemaForm
+  ScSchemaForm,
+  ScSchemaFormContainer
 ] as Plugin[]

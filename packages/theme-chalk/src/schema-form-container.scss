@@ -1,0 +1,58 @@
+@use 'mixins/mixins' as *;
+
+@include b(schema-form-container) {
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid getCssVar('border-color');
+  border-radius: getCssVar('border-radius', 'base');
+  @include b(schema-form) {
+    display: flex;
+    width: 100%;
+    @include e(grid-layout) {
+      display: grid;
+      flex: 1;
+      overflow: hidden;
+
+      .el-form-item {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@include b(schema-form-container) {
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+  @include e(search-wrap) {
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+  @include e(collapse-btn) {
+    flex-shrink: 0;
+
+    @include m(default) {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 12px;
+      font-size: 12px;
+      white-space: nowrap;
+      cursor: pointer;
+
+      @include when(collapse) {
+        svg {
+          transform: rotate(0deg);
+        }
+      }
+
+      svg {
+        flex-shrink: 0;
+        width: 14px;
+        margin-left: 4px;
+        transition: 0.3s ease-in-out;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
