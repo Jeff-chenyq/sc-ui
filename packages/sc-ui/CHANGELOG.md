@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.14
+
+### Patch Changes
+
+- 新增查询组件
+
 ## 1.0.13
 
 ### Patch Changes
