@@ -14,7 +14,7 @@ git commit -m "chore(version): $version"
 git push
 
 # commit
-npm version $version --message "[release] $version"
+# npm version $version --message "[release] $version"
 
 
 pnpm i --frozen-lockfile

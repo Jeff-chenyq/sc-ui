@@ -10,7 +10,7 @@
     :model="form"
     :rules="rules"
     :on-reset="reset"
-    :on-seatch="search"
+    :on-search="search"
   >
   </sc-schema-form-container>
 </template>

@@ -2,7 +2,16 @@ import { ArrowDown } from '@element-plus/icons-vue'
 import { ScSchemaForm } from '@sc-ui/components'
 import { useNamespace } from '@sc-ui/hooks'
 import { ElButton } from 'element-plus'
-import { defineComponent, useAttrs, ref, watch, computed } from 'vue'
+import {
+  defineComponent,
+  useAttrs,
+  ref,
+  watch,
+  computed,
+  nextTick,
+  onMounted,
+  onUnmounted
+} from 'vue'
 import { schemaFormContainerProps } from './utils'
 
 const ns = useNamespace('schema-form-container')
@@ -33,16 +42,32 @@ export default defineComponent({
 
     watch(schemaFormRef, (val) => {
       if (val) {
-        formHeight.value = (
-          val.$el as HTMLElement
-        ).getBoundingClientRect().height
+        getHeight()
       }
     })
+
+    async function getHeight() {
+      if (schemaFormRef.value) {
+        await nextTick()
+        formHeight.value =
+          (schemaFormRef.value.$el as HTMLElement)?.getBoundingClientRect()
+            .height || 0
+      }
+    }
 
     function resetFields() {
       schemaFormRef.value?.resetFields?.()
       props?.onReset?.()
     }
+
+    onMounted(() => {
+      getHeight()
+      window.addEventListener('resize', getHeight)
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', getHeight)
+    })
 
     return () => (
       <div
