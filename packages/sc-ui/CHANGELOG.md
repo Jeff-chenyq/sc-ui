@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.16
+
+### Patch Changes
+
+- 修复schema-form-container高度不准确问题
+
 ## 1.0.15
 
 ### Patch Changes
