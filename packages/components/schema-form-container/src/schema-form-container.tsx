@@ -10,7 +10,8 @@ import {
   computed,
   nextTick,
   onMounted,
-  onUnmounted
+  onUnmounted,
+  onUpdated
 } from 'vue'
 import { schemaFormContainerProps } from './utils'
 
@@ -63,6 +64,10 @@ export default defineComponent({
     onMounted(() => {
       getHeight()
       window.addEventListener('resize', getHeight)
+    })
+
+    onUpdated(() => {
+      getHeight()
     })
 
     onUnmounted(() => {
