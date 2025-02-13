@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.15
+
+### Patch Changes
+
+- fix(schema-form-container): 修复页面resize时，高度计算错误问题
+
 ## 1.0.14
 
 ### Patch Changes
