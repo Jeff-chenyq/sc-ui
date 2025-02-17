@@ -7,8 +7,9 @@ import glob from 'fast-glob'
 import { series } from 'gulp'
 import { rollup } from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
+import ElementPlus from 'unplugin-element-plus/rollup'
 import vueDefineOptions from 'unplugin-vue-define-options/rollup'
-import autoImportElementPlusStyles from '../../plugins/auto-import-element-plus'
+// import autoImportElementPlusStyles from '../../plugins/auto-import-element-plus'
 import { ScUiAlias } from '../../plugins/sc-ui-alias'
 import { target, buildConfigEntries } from '../build-info'
 import { epRoot, pkgRoot } from '../utils/path'
@@ -20,7 +21,8 @@ const plugins = [
   vueDefineOptions(),
   vue(),
   vueJsx(),
-  autoImportElementPlusStyles(),
+  ElementPlus(),
+  // autoImportElementPlusStyles(),
   // 用于解析Node.js模块。它可以让Rollup打包时使用Node.js模块（包括外部依赖），而不仅仅是ES模块
   nodeResolve(),
   commonjs(),
@@ -51,8 +53,12 @@ export const buildModulesComponents = async () => {
   const bundle = await rollup({
     input,
     plugins,
-    // treeshake: false,
-    treeshake: { moduleSideEffects: false },
+    // TODO treeshake 调整
+    treeshake: false,
+    // treeshake: { moduleSideEffects: false },
+    // treeshake: {
+    //   moduleSideEffects: 'no-external'
+    // },
     external: generateExternal({ full: true })
   })
 
