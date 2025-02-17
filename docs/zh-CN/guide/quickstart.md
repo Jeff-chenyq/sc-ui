@@ -7,6 +7,24 @@ lang: zh-CN
 
 本节将介绍如何在项目中使用。
 
+## 安装
+
+::: code-group
+
+```shell [npm]
+$ npm install @jeffchen123/sc-ui --save
+```
+
+```shell [yarn]
+$ yarn add @jeffchen123/sc-ui
+```
+
+```shell [pnpm]
+$ pnpm install @jeffchen123/sc-ui
+```
+
+:::
+
 ## 用法
 
 ### 完整引入
