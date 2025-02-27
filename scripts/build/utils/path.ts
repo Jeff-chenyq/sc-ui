@@ -10,6 +10,7 @@ export const localeRoot = resolve(pkgRoot, 'locale')
 export const directiveRoot = resolve(pkgRoot, 'directives')
 export const epRoot = resolve(pkgRoot, 'sc-ui')
 export const utilRoot = resolve(pkgRoot, 'utils')
+export const typingsRoot = resolve(projRoot, 'typings')
 
 // Docs
 export const docsDirName = 'docs'

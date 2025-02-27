@@ -1,5 +1,6 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { compRoot, docRoot, themeRoot, typingsRoot } from '@sc-ui/build'
 import fs from 'fs-extra'
 import { template, camelCase, upperFirst } from 'lodash-es'
 import prompts from 'prompts'
@@ -56,14 +57,77 @@ const getCreatedFiles = (name: string, type?: string) => {
       file: `${name}.scss`,
       template: 'style.component.scss.tpl',
       isThemeChalk: true
+    },
+    {
+      file: `examples/${name}/basic.vue`,
+      template: 'docs.basic.tpl',
+      isDoc: true
+    },
+    {
+      file: `zh-CN/component/${name}.md`,
+      template: 'docs.README.tpl',
+      isDoc: true
     }
   ]
+}
+
+/**
+ * 新增组件时自动添加需要的引入
+ */
+function insertComponent(name: string) {
+  const pascalCaseName = upperFirst(camelCase(name))
+  const list = [
+    // index.scss 插入 样式引用
+    {
+      file: path.resolve(themeRoot, 'src/index.scss'),
+      operate: (code: string) => {
+        return `${code}@use './${name}.scss';\n`
+      }
+    },
+    // global.d.ts 引入
+    {
+      file: path.resolve(typingsRoot, 'global.d.ts'),
+      operate: (code: string) => {
+        return code.replace(
+          'export interface GlobalComponents {',
+          `export interface GlobalComponents {\n    Sc${pascalCaseName}: (typeof import('@jeffchen123/sc-ui'))['Sc${pascalCaseName}']`
+        )
+      }
+    },
+    // components.ts 引入
+    {
+      file: path.resolve(compRoot, 'index.ts'),
+      operate: (code: string) => {
+        return `${code}export * from './${name}'\n`
+      }
+    },
+    // siddebars.ts
+    {
+      file: path.resolve(docRoot, '.vitepress/config/sideCompList.ts'),
+      operate: (code: string) => {
+        // 使用正则匹配数组的最后一项位置
+
+        const newItem = `\n  {\n    link: '/${name}',\n    text: '${pascalCaseName}'\n  },`
+
+        return code.replace('export default [', `export default [${newItem}`)
+      }
+    }
+  ]
+
+  list.forEach(async (item) => {
+    const code = await fs.readFile(item.file, 'utf-8')
+
+    const finalCode = item.operate(code)
+    await fs.outputFile(item.file, finalCode)
+  })
 }
 
 /**
  * 添加一个组件
  */
 const addComponent = async (name: string, type?: string) => {
+  insertComponent(name)
+
   getCreatedFiles(name, type).forEach(async (item) => {
     // esmodule 新方式
     const __dirname = fileURLToPath(new URL('.', import.meta.url))
@@ -83,10 +147,12 @@ const addComponent = async (name: string, type?: string) => {
     // 输入模板
     const filePath = item.isThemeChalk
       ? 'packages/theme-chalk/src'
-      : 'packages/components'
+      : item.isDoc
+        ? 'docs'
+        : 'packages/components'
     const outputPath = path.resolve(
       process.cwd(),
-      !item.isThemeChalk
+      !item.isThemeChalk && !item.isDoc
         ? `${filePath}/${name}/${item.file}`
         : `${filePath}/${item.file}`
     )
