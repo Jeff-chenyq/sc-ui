@@ -4,7 +4,6 @@ import { useNamespace } from '@sc-ui/hooks'
 import { ElButton } from 'element-plus'
 import {
   defineComponent,
-  useAttrs,
   ref,
   watch,
   computed,
@@ -32,9 +31,7 @@ export default defineComponent({
 
   emits: [],
 
-  setup(props, { emit, slots }) {
-    const attrs = useAttrs()
-
+  setup(props, { emit, slots, attrs }) {
     const schemaFormRef = ref()
     const isCollapse = ref(props.defaultCollapse)
     const formHeight = ref(0)

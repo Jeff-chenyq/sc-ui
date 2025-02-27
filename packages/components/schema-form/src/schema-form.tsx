@@ -15,7 +15,7 @@ import {
   ElCheckboxGroup,
   ElCheckbox
 } from 'element-plus'
-import { defineComponent, useAttrs, computed, ref, onMounted } from 'vue'
+import { defineComponent, computed, ref, onMounted } from 'vue'
 import type { SchemaFormItem } from './types'
 import { schemaFormProps } from './utils'
 
@@ -28,9 +28,7 @@ export default defineComponent({
 
   emits: [],
 
-  setup(props, { emit, slots, expose }) {
-    const attrs = useAttrs()
-
+  setup(props, { emit, slots, expose, attrs }) {
     const gridColumns = computed(() => {
       if (props.gridCols === 'auto') {
         return `repeat(auto-fill, minmax(${props.gridFr}px, 1fr))`

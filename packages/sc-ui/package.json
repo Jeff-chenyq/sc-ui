@@ -49,9 +49,10 @@
   "unpkg": "dist/index.full.js",
   "jsdelivr": "dist/index.full.js",
   "peerDependencies": {
-    "vue": "^3.2.0",
+    "@element-plus/icons-vue": "^2.3.1",
+    "echarts": "^5.0.0",
     "element-plus": "^2.9.3",
-    "@element-plus/icons-vue": "^2.3.1"
+    "vue": "^3.2.0"
   },
   "keywords": [
     "sc-ui",
@@ -69,7 +70,8 @@
     "dayjs": "^1.11.13",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
-    "lodash-unified": "^1.0.3"
+    "lodash-unified": "^1.0.3",
+    "size-sensor": "^1.0.2"
   },
   "vetur": {
     "tags": "tags.json",

@@ -48,6 +48,10 @@ function getComponentSidebar(): DefaultTheme.SidebarItem[] {
         {
           link: '/schema-form-container',
           text: 'SchemaFormContainer 查询容器组件'
+        },
+        {
+          link: '/echart',
+          text: 'Echart 图表组件'
         }
       ]
     }

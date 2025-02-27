@@ -6,7 +6,8 @@ import {
   ScTextEllipsis,
   ScMagnifier,
   ScSchemaForm,
-  ScSchemaFormContainer
+  ScSchemaFormContainer,
+  ScEchart
 } from '@sc-ui/components'
 
 import type { Plugin } from 'vue'
@@ -19,5 +20,6 @@ export default [
   ScTextEllipsis,
   ScMagnifier,
   ScSchemaForm,
-  ScSchemaFormContainer
+  ScSchemaFormContainer,
+  ScEchart
 ] as Plugin[]

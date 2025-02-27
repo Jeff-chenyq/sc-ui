@@ -62,7 +62,8 @@ const build = async (minify: boolean) => {
       globals: {
         vue: 'Vue',
         'element-plus': 'ElementPlus',
-        '@element-plus/icons-vue': 'ElementPlusIconsVue'
+        '@element-plus/icons-vue': 'ElementPlusIconsVue',
+        echarts: 'ECharts'
       },
       sourcemap: minify
     })
