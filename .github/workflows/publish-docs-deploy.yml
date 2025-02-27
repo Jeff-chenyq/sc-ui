@@ -52,7 +52,7 @@ jobs:
       # https://pnpm.io/zh/cli/install#--frozen-lockfile
       # 下载依赖
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Install latest sc-ui
         run: cd docs && pnpm i @jeffchen123/sc-ui@latest
