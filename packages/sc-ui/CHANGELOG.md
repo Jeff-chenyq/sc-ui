@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.17
+
+### Patch Changes
+
+- 新增图表组件
+
 ## 1.0.16
 
 ### Patch Changes
