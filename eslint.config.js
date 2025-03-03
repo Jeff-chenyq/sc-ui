@@ -1,4 +1,4 @@
-import eslintConfig from '@sc-ui/eslint-config'
+import eslintConfig from '@jeffchen123/eslint-config'
 
 export default [
   ...eslintConfig,

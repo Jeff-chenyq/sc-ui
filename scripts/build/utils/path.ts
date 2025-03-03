@@ -11,6 +11,8 @@ export const directiveRoot = resolve(pkgRoot, 'directives')
 export const epRoot = resolve(pkgRoot, 'sc-ui')
 export const utilRoot = resolve(pkgRoot, 'utils')
 export const typingsRoot = resolve(projRoot, 'typings')
+export const eslintRoot = resolve(pkgRoot, 'eslint-config')
+export const stylelintRoot = resolve(pkgRoot, 'stylelint-config')
 
 // Docs
 export const docsDirName = 'docs'
@@ -23,6 +25,11 @@ export const vpRoot = resolve(docRoot, 'docs/.vitepress')
 export const buildOutput = resolve(projRoot, 'dist')
 /** `/dist/sc-ui` */
 export const epOutput = resolve(buildOutput, 'sc-ui')
+
+// eslint output
+export const eslintOutput = resolve(projRoot, 'dist-eslint')
+// stylelint output
+export const stylelintOutput = resolve(projRoot, 'dist-stylelint')
 
 // package
 export const projPackage = resolve(projRoot, 'package.json')

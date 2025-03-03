@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "cyq",
+  "license": "MIT",
   "peerDependencies": {
     "postcss": ">=8.0.0",
     "prettier": ">=3.0.0",

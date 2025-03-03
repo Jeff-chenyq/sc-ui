@@ -2,11 +2,9 @@ import { buildConfig, Module } from '../build-info'
 import { PKG_NAME, PKG_PREFIX } from './consts'
 import { epPackage, projRoot } from './path'
 
-export const getPackageDependencies = () => {
+export const getPackageDependencies = (dir = epPackage) => {
   // eslint-disable-next-line
-  const { version, dependencies = {}, peerDependencies = {} } = require(
-    epPackage
-  )
+  const { version, dependencies = {}, peerDependencies = {} } = require(dir)
   return {
     version,
     dependencies: Object.keys(dependencies),

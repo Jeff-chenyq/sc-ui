@@ -12,12 +12,14 @@
     "gen": "tsx scripts/generate/component.ts",
     "dev": "pnpm -C play dev",
     "build": "gulp --require @esbuild-kit/cjs-loader -f scripts/build/index.ts",
-    "postinstall": "pnpm -C scripts stub",
+    "build-eslint": "gulp --require @esbuild-kit/cjs-loader -f scripts/build/eslint.ts",
+    "postinstall": "pnpm -C scripts stub && pnpm build-eslint",
     "lint:lint-staged": "lint-staged",
     "lint:eslint": "eslint --fix --cache \"**/*.{js,jsx,ts,tsx,vue}\"",
     "lint:stylelint": "stylelint --fix --cache \"**/*.{css,scss,less,styl,vue}\"",
     "lint:prettier": "prettier --write  \"**/*.{css,scss,less,styl,js,jsx,ts,tsx,vue}\"",
-    "release": "sh scripts/release.sh"
+    "release": "sh scripts/release.sh",
+    "release:eslint": "sh scripts/release-eslint.sh"
   },
   "peerDependencies": {
     "element-plus": "^2.9.3",
@@ -30,7 +32,7 @@
     "@sc-ui/build": "workspace:*",
     "@sc-ui/components": "workspace:*",
     "@sc-ui/constants": "workspace:*",
-    "@sc-ui/eslint-config": "workspace:*",
+    "@jeffchen123/eslint-config": "workspace:*",
     "@sc-ui/hooks": "workspace:*",
     "@sc-ui/stylelint-config": "workspace:*",
     "@sc-ui/theme-chalk": "workspace:*",
@@ -79,6 +81,7 @@
     "stylelint": "^16.10.0",
     "tsx": "^4.19.2",
     "typescript": "5.6.2",
+    "unbuild": "^3.2.0",
     "unplugin-element-plus": "0.4.1",
     "unplugin-vue-components": "^0.28.0",
     "unplugin-vue-define-options": "^1.5.2",
