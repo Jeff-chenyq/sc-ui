@@ -4,12 +4,6 @@
   "description": "styleint config",
   "main": "index.js",
   "type": "module",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
-  },
   "scripts": {
     "build": "unbuild"
   },
