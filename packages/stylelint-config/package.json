@@ -1,6 +1,6 @@
 {
   "name": "@jeffchen123/stylelint-config",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "styleint config",
   "main": "index.js",
   "type": "module",
