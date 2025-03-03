@@ -1,4 +1,4 @@
-import { stylelintRoot, getPackageDependencies } from '@sc-ui/build'
+import { stylelintPackage, getPackageDependencies } from '@sc-ui/build'
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
@@ -9,7 +9,7 @@ export default defineBuildConfig({
     emitCJS: true
   },
   externals: [
-    ...getPackageDependencies(stylelintRoot).dependencies,
-    ...getPackageDependencies(stylelintRoot).peerDependencies
+    ...getPackageDependencies(stylelintPackage).dependencies,
+    ...getPackageDependencies(stylelintPackage).peerDependencies
   ]
 })
