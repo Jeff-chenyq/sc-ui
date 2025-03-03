@@ -11,6 +11,9 @@ importers:
       '@jeffchen123/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
+      '@jeffchen123/stylelint-config':
+        specifier: workspace:*
+        version: link:packages/stylelint-config
       '@sc-ui/build':
         specifier: workspace:*
         version: link:scripts
@@ -23,9 +26,6 @@ importers:
       '@sc-ui/hooks':
         specifier: workspace:*
         version: link:packages/hooks
-      '@sc-ui/stylelint-config':
-        specifier: workspace:*
-        version: link:packages/stylelint-config
       '@sc-ui/theme-chalk':
         specifier: workspace:*
         version: link:packages/theme-chalk

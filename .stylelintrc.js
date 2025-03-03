@@ -1,4 +1,4 @@
-import stylelintConfig from '@sc-ui/stylelint-config'
+import stylelintConfig from '@jeffchen123/stylelint-config'
 
 /** @type {import('stylelint').Config} */
 export default {
