@@ -1,5 +1,11 @@
 # @jeffchen123/stylelint-config
 
+## 1.0.4
+
+### Patch Changes
+
+- fix package.json
+
 ## 1.0.3
 
 ### Patch Changes
