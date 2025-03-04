@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.18
+
+### Patch Changes
+
+- schema-form 新增 hidden 属性
+
 ## 1.0.17
 
 ### Patch Changes
