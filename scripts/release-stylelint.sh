@@ -19,6 +19,8 @@ git push
 
 pnpm i --frozen-lockfile
 
+pnpm build-stylelint
+
 cd packages/stylelint-config
 npm publish --access=public
 # changeset publish --provenance

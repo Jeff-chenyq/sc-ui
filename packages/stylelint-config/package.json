@@ -2,8 +2,15 @@
   "name": "@jeffchen123/stylelint-config",
   "version": "1.0.4",
   "description": "styleint config",
-  "main": "index.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
   "scripts": {
     "build": "unbuild"
   },
