@@ -58,10 +58,16 @@ type CompType =
   | 'PLATE_NUMBER'
   | 'CUSTOM'
 
+type FormItemHiddenFn = () => boolean
+
 interface SchemaFormItem {
   compType: CompType
   label: string
   prop: string
+  /**
+   * @description 是否隐藏当前item
+   */
+  hidden?: boolean | FormItemHiddenFn
 
   /**
    * @description formItem 的 props

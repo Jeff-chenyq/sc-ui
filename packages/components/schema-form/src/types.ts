@@ -15,10 +15,13 @@ export const compTypeList = [
 
 export type CompType = (typeof compTypeList)[number]
 
+export type FormItemHiddenFn = () => boolean
+
 export interface SchemaFormItem {
   compType: CompType
   label: string
   prop: string
+  hidden?: boolean | FormItemHiddenFn
 
   /**
    * @description formItem 的 props

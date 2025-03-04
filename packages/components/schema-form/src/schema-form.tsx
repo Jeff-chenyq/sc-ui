@@ -220,7 +220,17 @@ export default defineComponent({
           !props.isAutoLabelWidth ? props.labelWidth : getLabelWidth()
         }>
         <div class={ns.e('grid-layout')} style={gridStyle.value}>
-          {props.formItemList.map((item) => renderFormItem(item))}
+          {props.formItemList
+            .filter((item) => {
+              if (!item.hidden) return true
+
+              if (typeof item.hidden === 'function') {
+                return !item.hidden()
+              }
+
+              return !item.hidden
+            })
+            .map((item) => renderFormItem(item))}
         </div>
         {slots.other?.()}
       </ElForm>

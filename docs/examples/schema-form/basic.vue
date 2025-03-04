@@ -38,6 +38,8 @@ const formItemList = computed(
         compType: 'INPUT',
         prop: 'name',
         label: '姓名',
+        // 显示隐藏
+        hidden: true,
         // formItemProps: {
         //   label: '自定义姓名'
         // },
