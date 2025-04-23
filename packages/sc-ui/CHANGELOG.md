@@ -1,5 +1,11 @@
 # sc-ui
 
+## 1.0.19
+
+### Patch Changes
+
+- 修复schema-form expose方法错误问题
+
 ## 1.0.18
 
 ### Patch Changes
