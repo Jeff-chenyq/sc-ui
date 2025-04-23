@@ -15,7 +15,7 @@ import {
   ElCheckboxGroup,
   ElCheckbox
 } from 'element-plus'
-import { defineComponent, computed, ref, onMounted } from 'vue'
+import { defineComponent, computed, ref } from 'vue'
 import type { SchemaFormItem } from './types'
 import { schemaFormProps } from './utils'
 
@@ -29,6 +29,46 @@ export default defineComponent({
   emits: [],
 
   setup(props, { emit, slots, expose, attrs }) {
+    /**
+     * rules添加默认message
+     * TODO: 针对具体组件类型，匹配默认的trigger
+     */
+    const finalRules = computed(() => {
+      if (!props.rules) return undefined
+      const rules = {} as Record<string, any>
+      Object.keys(props.rules).forEach((key) => {
+        const arr = props.rules![key]
+        const formItem = props.formItemList.find((item) => item.prop === key)
+        const message = formItem?.label || ''
+        const compType = formItem?.compType
+        const isSelect = ['SELECT', 'CHECKBOX_GROUP', 'RADIO_GROUP'].includes(
+          compType!
+        )
+
+        if (arr instanceof Array) {
+          rules[key] = arr.map((rule: any) => {
+            return {
+              ...rule,
+              message:
+                rule.message ??
+                (isSelect ? `请选择${message}` : `请输入${message}`)
+            }
+          })
+        } else {
+          rules[key] = [
+            {
+              ...arr,
+              message:
+                arr.message ??
+                (isSelect ? `请选择${message}` : `请输入${message}`)
+            }
+          ]
+        }
+      })
+
+      return rules
+    })
+
     const gridColumns = computed(() => {
       if (props.gridCols === 'auto') {
         return `repeat(auto-fill, minmax(${props.gridFr}px, 1fr))`
@@ -189,26 +229,24 @@ export default defineComponent({
 
     const elFormRef = ref<InstanceType<typeof ElForm>>()
 
-    function exposeAllMethods() {
-      if (elFormRef.value) {
-        props.getInstance?.(elFormRef.value)
+    expose(
+      new Proxy(
+        {},
+        {
+          get(_target, key: string) {
+            if (!elFormRef.value) {
+              console.warn('elFormRef is not initialized')
+              return undefined
+            }
 
-        const methodObj = {}
-        const entries = Object.entries(elFormRef.value)
-        for (const [method, fn] of entries) {
-          methodObj[method] = fn
+            return elFormRef.value[key]
+          },
+          has(_target, key) {
+            return key in elFormRef.value!
+          }
         }
-
-        expose(methodObj)
-      } else {
-        console.error('elFormRef is undefined')
-      }
-    }
-
-    // 暴露 ElForm 的方法
-    onMounted(() => {
-      exposeAllMethods()
-    })
+      )
+    )
 
     return () => (
       <ElForm
@@ -216,6 +254,7 @@ export default defineComponent({
         class={ns.b()}
         {...props}
         {...attrs}
+        rules={finalRules.value}
         label-width={
           !props.isAutoLabelWidth ? props.labelWidth : getLabelWidth()
         }>
